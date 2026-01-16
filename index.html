@@ -1,0 +1,2155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="WBC CM Worship Journey 2025">
+    <meta name="author" content="Agentic coded by Michael Hui">
+    <title>WBC CM Worship Journey 2025</title>
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Sans CJK SC", "Microsoft YaHei";
+            line-height: 1.6;
+            color: #333;
+            background: #f9f9f9;
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: sticky;
+            top: 0;
+            background: #2C3E50;
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .nav-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-btn {
+            background: #34495E;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 4px;
+            margin-top: 0.5rem;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content .nav-link {
+            color: #333;
+            display: block;
+            padding: 0.75rem 1rem;
+        }
+
+        .dropdown-content .nav-link:hover {
+            background: #f0f0f0;
+        }
+
+        .dropdown.active .dropdown-content {
+            display: block;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2C3E50 0%, #3498DB 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        /* Main Content */
+        main {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-description {
+            color: #666;
+            font-size: 1.1rem;
+        }
+
+        /* Leader Cards */
+        .leaders-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .leader-card {
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .leader-header {
+            background: linear-gradient(135deg, #F39C12 0%, #E67E22 100%);
+            color: white;
+            padding: 2rem;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .leader-header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .leader-header h3 {
+            font-size: 2rem;
+            margin: 0;
+        }
+
+        .expand-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .leader-card.collapsed .expand-icon {
+            transform: rotate(-90deg);
+        }
+
+        .stats-summary {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        .leader-content {
+            padding: 2rem;
+            max-height: 5000px;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .leader-card.collapsed .leader-content {
+            max-height: 0;
+            padding: 0 2rem;
+        }
+
+        .stat-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .stat-section h4 {
+            font-size: 1.3rem;
+            color: #2C3E50;
+            margin-bottom: 0.5rem;
+            border-bottom: 2px solid #F39C12;
+            padding-bottom: 0.5rem;
+        }
+
+        /* Collapsible sections in global stats */
+        .collapsible {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+
+        .collapsible-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            user-select: none;
+            background: #f5f5f5;
+            padding: 1rem 1.5rem;
+            margin: 0;
+            border: none;
+            border-bottom: none;
+            transition: background 0.3s ease;
+        }
+
+        .collapsible-header:hover {
+            background: #e8e8e8;
+        }
+
+        .collapsible-content {
+            max-height: 5000px;
+            overflow: hidden;
+            padding: 1.5rem;
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .collapsible.collapsed .collapsible-content {
+            max-height: 0;
+            padding: 0 1.5rem;
+        }
+
+        .collapsible.collapsed .expand-icon {
+            transform: rotate(-90deg);
+        }
+
+        .single-occurrence-note {
+            color: #666;
+            font-style: italic;
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #f9f9f9;
+            border-left: 3px solid #F39C12;
+            border-radius: 4px;
+        }
+
+        .section-note {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            font-style: italic;
+        }
+
+        /* Tables */
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .stats-table th {
+            background: #2C3E50;
+            color: white;
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .stats-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .stats-table tbody tr:hover {
+            background: #f5f5f5;
+        }
+
+        .stats-table tbody tr:nth-child(even) {
+            background: #fafafa;
+        }
+
+        .leaders-cell {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        /* Song Lists */
+        .song-list {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 0.5rem;
+        }
+
+        .song-list li {
+            background: #f0f0f0;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            border-left: 3px solid #F39C12;
+        }
+
+        /* New Song Indicator */
+        .new-song-indicator {
+            color: #E74C3C;
+            font-size: 0.8em;
+            margin-right: 0.3rem;
+            font-weight: bold;
+            cursor: help;
+            transition: color 0.2s ease;
+        }
+
+        .new-song-indicator:hover {
+            color: #C0392B;
+        }
+
+        /* Info Box */
+        .info-box {
+            background: #FFF3CD;
+            border: 1px solid #FFC107;
+            border-radius: 8px;
+            padding: 1rem 1.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #856404;
+            font-size: 1rem;
+        }
+
+        /* Overlap Section */
+        .overlap-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .overlap-item {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .overlap-leader {
+            font-weight: 600;
+            color: #2C3E50;
+        }
+
+        .overlap-count {
+            background: #F39C12;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        /* Global Stats */
+        .global-container {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .highlight-card {
+            background: linear-gradient(135deg, #3498DB 0%, #2C3E50 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .highlight-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .big-number {
+            font-size: 4rem;
+            font-weight: bold;
+        }
+
+        .no-data {
+            color: #999;
+            font-style: italic;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        /* Footer */
+        footer {
+            background: #2C3E50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links.mobile-active {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: #2C3E50;
+                padding: 1rem;
+            }
+
+            .stats-summary {
+                justify-content: center;
+            }
+
+            .song-list {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-table {
+                font-size: 0.9rem;
+            }
+
+            .stats-table th,
+            .stats-table td {
+                padding: 0.5rem;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .leaders-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <nav class="main-nav">
+        
+        <div class="nav-brand">Worship Journey 2025</div>
+        <div class="nav-links">
+            <a href="#section-a" class="nav-link">Praise Leaders</a>
+            <a href="#section-b" class="nav-link">Global Stats</a>
+            <a href="#all-songs" class="nav-link">All Songs</a>
+            <div class="dropdown">
+                <button class="dropdown-btn">Leaders ▾</button>
+                <div class="dropdown-content">
+                    <a href="#leader-alan" class="nav-link">Alan</a><a href="#leader-cannis" class="nav-link">Cannis</a><a href="#leader-jeanne" class="nav-link">Jeanne</a><a href="#leader-joseph" class="nav-link">Joseph</a><a href="#leader-keith" class="nav-link">Keith</a><a href="#leader-lobo" class="nav-link">Lobo</a><a href="#leader-maree" class="nav-link">Maree</a><a href="#leader-michael" class="nav-link">Michael</a><a href="#leader-phoebe" class="nav-link">Phoebe</a><a href="#leader-shirley" class="nav-link">Shirley</a><a href="#leader-tl" class="nav-link">TL</a>
+                </div>
+            </div>
+        </div>
+        <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+    
+    </nav>
+
+    <header class="hero">
+        <h1>WBC CM Worship Journey 2025</h1>
+        <p class="subtitle">Comprehensive statistics on the selection of praise songs</p>
+    </header>
+
+    <main>
+        <section id="section-a" class="section">
+            <div class="section-header">
+                <h2>Section A: Praise Leaders Rewind 2025</h2>
+                <p class="section-description">Individual statistics for each praise leader</p>
+            </div>
+            <div class="leaders-container">
+                
+    <article id="leader-alan" class="leader-card" data-leader-id="alan">
+        <header class="leader-header" onclick="toggleLeaderCard('alan')">
+            <div class="leader-header-content">
+                <h3>Alan</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">6</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">34</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">21</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>3</td></tr>
+<tr><td>2</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</td><td>2</td></tr>
+<tr><td>3</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</li><li>同享主餐</li><li>同餅同杯</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 和平之君</li><li>回到世界中心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li>因主的名</li><li>基督的使者</li><li>好信息</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>神是我這生供應者</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li>這是愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 連於祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Shirley</span><span class="overlap-count">12 songs</span></div><div class="overlap-item"><span class="overlap-leader">Michael</span><span class="overlap-count">9 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-cannis" class="leader-card" data-leader-id="cannis">
+        <header class="leader-header" onclick="toggleLeaderCard('cannis')">
+            <div class="leader-header-content">
+                <h3>Cannis</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">16</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">94</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">44</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</td><td>2</td></tr>
+<tr><td>2</td><td>榮耀大君王</td><td>2</td></tr>
+<tr><td>3</td><td>讓我得見祢的榮面</td><td>2</td></tr>
+<tr><td>4</td><td>神的帳幕在人間</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>徹底</td><td>2</td></tr>
+<tr><td>2</td><td>同餅同杯</td><td>2</td></tr>
+<tr><td>3</td><td>求主給這世代看見異象</td><td>2</td></tr>
+<tr><td>4</td><td>期待耶穌</td><td>2</td></tr>
+<tr><td>5</td><td>因祢堅持</td><td>2</td></tr>
+<tr><td>6</td><td>歷煉荊途</td><td>2</td></tr>
+<tr><td>7</td><td>好信息</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>6</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>5</td></tr>
+<tr><td>3</td><td>主賜福您</td><td>3</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>6</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>5</td></tr>
+<tr><td>3</td><td>主賜福您</td><td>3</td></tr>
+<tr><td>4</td><td>好信息</td><td>3</td></tr>
+<tr><td>5</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</td><td>2</td></tr>
+<tr><td>6</td><td>徹底</td><td>2</td></tr>
+<tr><td>7</td><td>這愛極深厚</td><td>2</td></tr>
+<tr><td>8</td><td>直到我遇到祢</td><td>2</td></tr>
+<tr><td>9</td><td>榮耀大君王</td><td>2</td></tr>
+<tr><td>10</td><td>世界最美的聲音</td><td>2</td></tr>
+<tr><td>11</td><td>同餅同杯</td><td>2</td></tr>
+<tr><td>12</td><td>每當我們同心敬拜</td><td>2</td></tr>
+<tr><td>13</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</td><td>2</td></tr>
+<tr><td>14</td><td>讓我得見祢的榮面</td><td>2</td></tr>
+<tr><td>15</td><td>求主給這世代看見異象</td><td>2</td></tr>
+<tr><td>16</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>2</td></tr>
+<tr><td>17</td><td>期待耶穌</td><td>2</td></tr>
+<tr><td>18</td><td>因祢堅持</td><td>2</td></tr>
+<tr><td>19</td><td>歷煉荊途</td><td>2</td></tr>
+<tr><td>20</td><td>神的帳幕在人間</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</li><li>信心眼淚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 信眾齊到主前 O Come All Ye Faithful</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 光輝的主 Here I Am to Worship</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li>同餅同杯</li><li>天父⋯</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li>安靜 Still</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們歡迎君王降臨</li><li>我的心，祢要稱頌耶和華</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</li><li>永約之誓</li><li>無論那刻</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>祢大能勝過我的限制</li><li>祢的愛</li><li>萬代君主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 詩篇 Psalm 149</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li>這愛極深厚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 願你平安</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Jeanne</span><span class="overlap-count">17 songs</span></div><div class="overlap-item"><span class="overlap-leader">TL</span><span class="overlap-count">16 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-jeanne" class="leader-card" data-leader-id="jeanne">
+        <header class="leader-header" onclick="toggleLeaderCard('jeanne')">
+            <div class="leader-header-content">
+                <h3>Jeanne</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">10</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">56</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">40</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>讚美永不息</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>因祢堅持</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>5</td></tr>
+<tr><td>2</td><td>祝福歌</td><td>3</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>5</td></tr>
+<tr><td>2</td><td>祝福歌</td><td>3</td></tr>
+<tr><td>3</td><td>信心眼淚</td><td>2</td></tr>
+<tr><td>4</td><td>因祢堅持</td><td>2</td></tr>
+<tr><td>5</td><td>讚美永不息</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li>世界最美的聲音</li><li>人間行傳</li><li>以愛還愛</li><li>信心眼淚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</li><li>全地至高是我主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li>因主的名</li><li>坐在寶座上聖潔羔羊</li><li>奔跑不放棄</li><li>平安的約</li><li>得勝</li><li>得著自由</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 恩典之路</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li>我心安穩</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</li><li>榮耀大君王</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</li><li>求主給這世代看見異象</li><li>決心跟祢</li><li>渴慕祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li>祝福歌</li><li>神祢信實奇妙</li><li>祢成就救恩</li><li>繼續相信</li><li>耶穌我感謝祢</li><li>至愛的迴響</li><li>至死忠心</li><li>至高尊貴的祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li>諸天頌讚</li><li>讚美永不息</li><li>逾越</li><li>重燃薪火</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 𧶽我自由</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Cannis</span><span class="overlap-count">17 songs</span></div><div class="overlap-item"><span class="overlap-leader">Keith</span><span class="overlap-count">16 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-joseph" class="leader-card" data-leader-id="joseph">
+        <header class="leader-header" onclick="toggleLeaderCard('joseph')">
+            <div class="leader-header-content">
+                <h3>Joseph</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">26</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">18</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>一生的恩惠</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>3</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>3</td></tr>
+<tr><td>2</td><td>一生的恩惠</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li>一生的恩惠</li><li>全是祢恩典</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 打開天窗 Open the Gates</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 敬拜讚美神獨一的主 O Praise The Name (Anástasis)</li><li>榮耀頌 Doxology</li><li>渴慕祢</li><li>渴慕聖潔</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 甦醒 Resurrecting</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>神同在</li><li>祢大能勝過我的限制</li><li>祢配得</li><li>至死忠心</li><li>諸天頌讚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</li><li>這是愛</li><li>靠向我主</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Shirley</span><span class="overlap-count">9 songs</span></div><div class="overlap-item"><span class="overlap-leader">Cannis</span><span class="overlap-count">9 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-keith" class="leader-card" data-leader-id="keith">
+        <header class="leader-header" onclick="toggleLeaderCard('keith')">
+            <div class="leader-header-content">
+                <h3>Keith</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">17</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">91</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">41</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>全因基督</td><td>2</td></tr>
+<tr><td>2</td><td>永恆的祢</td><td>2</td></tr>
+<tr><td>3</td><td>在我主光亮中</td><td>2</td></tr>
+<tr><td>4</td><td>生命活水充滿我</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>同餅同杯</td><td>2</td></tr>
+<tr><td>2</td><td>再次將我更新</td><td>2</td></tr>
+<tr><td>3</td><td>讓我</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>8</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>5</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>8</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>5</td></tr>
+<tr><td>3</td><td>全因基督</td><td>2</td></tr>
+<tr><td>4</td><td>好信息</td><td>2</td></tr>
+<tr><td>5</td><td>我的心，祢要稱頌耶和華</td><td>2</td></tr>
+<tr><td>6</td><td>永恆的祢</td><td>2</td></tr>
+<tr><td>7</td><td>同餅同杯</td><td>2</td></tr>
+<tr><td>8</td><td>在我主光亮中</td><td>2</td></tr>
+<tr><td>9</td><td>生命活水充滿我</td><td>2</td></tr>
+<tr><td>10</td><td>再次將我更新</td><td>2</td></tr>
+<tr><td>11</td><td>至死忠心</td><td>2</td></tr>
+<tr><td>12</td><td>讓我</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Ocean Will Part</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> The Lord Bless You and Keep You (John Rutter)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li>一生的恩惠</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 世界之光</li><li>世界最美的聲音</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主愛大能 (Power Of Your Love)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</li><li>信實的確據</li><li>全因基督</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 同證主美意</li><li>同餅同杯</li><li>呼喚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>在我主光亮中</li><li>大能的恩典</li><li>天父⋯</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</li><li>好信息</li><li>寶貴十架</li><li>平安的約</li><li>愛的恩賜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 慈愛恩主，請祢來臨 (O Come, O Come, Emmanuel)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我獻上生命給祢</li><li>我的心，祢要稱頌耶和華</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的救贖者活著</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</li><li>有神同往</li><li>榮雨降下</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天 (Day By Day)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</li><li>永恆的祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 求作主僕（Make Me a Servant）</li><li>決心跟祢</li><li>渴慕祢</li><li>滿有能力</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li>生命活水充滿我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 祝福歌（恭喜恭喜）</li><li>神是我這生供應者</li><li>神祢信實奇妙</li><li>祢大能勝過我的限制</li><li>祢讓我生命改變</li><li>耶和華以勒</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖哉千千載（Holy Forever）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈之歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈請祢來充滿我心</li><li>至愛的迴響</li><li>至死忠心</li><li>至高尊貴的祢</li><li>認定祢</li><li>讓我</li><li>讚美永不息</li><li>讚頌祢的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治我</li><li>靠著祢寶血</li><li>願祢平安</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Michael</span><span class="overlap-count">16 songs</span></div><div class="overlap-item"><span class="overlap-leader">Jeanne</span><span class="overlap-count">16 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-lobo" class="leader-card" data-leader-id="lobo">
+        <header class="leader-header" onclick="toggleLeaderCard('lobo')">
+            <div class="leader-header-content">
+                <h3>Lobo</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">16</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">10</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</li><li>主賜福您</li><li>全地至高是我主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>天地讚美</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</li><li>愛，再不是傳說</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li>我向祢禱告</li><li>祝福歌</li><li>神坐著為王</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Shirley</span><span class="overlap-count">5 songs</span></div><div class="overlap-item"><span class="overlap-leader">Jeanne</span><span class="overlap-count">5 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-maree" class="leader-card" data-leader-id="maree">
+        <header class="leader-header" onclick="toggleLeaderCard('maree')">
+            <div class="leader-header-content">
+                <h3>Maree</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">1</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">5</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">3</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</li><li>安靜 Still</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 帶我進入祢的同在</li><li>猶大書榮耀頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓目光單轉向祢(Turn your eyes upon Jesus)</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Michael</span><span class="overlap-count">2 songs</span></div><div class="overlap-item"><span class="overlap-leader">Cannis</span><span class="overlap-count">2 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-michael" class="leader-card" data-leader-id="michael">
+        <header class="leader-header" onclick="toggleLeaderCard('michael')">
+            <div class="leader-header-content">
+                <h3>Michael</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">18</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">99</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">49</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>大能的恩典</td><td>3</td></tr>
+<tr><td>2</td><td>榮美屬祢</td><td>2</td></tr>
+<tr><td>3</td><td>信實的確據</td><td>2</td></tr>
+<tr><td>4</td><td>晚禱</td><td>2</td></tr>
+<tr><td>5</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</td><td>2</td></tr>
+<tr><td>6</td><td>得著自由</td><td>2</td></tr>
+<tr><td>7</td><td>靠向我主</td><td>2</td></tr>
+<tr><td>8</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>因祢堅持</td><td>3</td></tr>
+<tr><td>2</td><td>這是愛</td><td>2</td></tr>
+<tr><td>3</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</td><td>2</td></tr>
+<tr><td>4</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>7</td></tr>
+<tr><td>2</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</td><td>7</td></tr>
+<tr><td>3</td><td>祝福歌</td><td>2</td></tr>
+<tr><td>4</td><td>猶大書榮耀頌</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>7</td></tr>
+<tr><td>2</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</td><td>7</td></tr>
+<tr><td>3</td><td>因祢堅持</td><td>3</td></tr>
+<tr><td>4</td><td>大能的恩典</td><td>3</td></tr>
+<tr><td>5</td><td>榮美屬祢</td><td>2</td></tr>
+<tr><td>6</td><td>主基督配得</td><td>2</td></tr>
+<tr><td>7</td><td>祝福歌</td><td>2</td></tr>
+<tr><td>8</td><td>平安的約</td><td>2</td></tr>
+<tr><td>9</td><td>信實的確據</td><td>2</td></tr>
+<tr><td>10</td><td>這是愛</td><td>2</td></tr>
+<tr><td>11</td><td>晚禱</td><td>2</td></tr>
+<tr><td>12</td><td>猶大書榮耀頌</td><td>2</td></tr>
+<tr><td>13</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</td><td>2</td></tr>
+<tr><td>14</td><td>得著自由</td><td>2</td></tr>
+<tr><td>15</td><td>靠向我主</td><td>2</td></tr>
+<tr><td>16</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</td><td>2</td></tr>
+<tr><td>17</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</td><td>2</td></tr>
+<tr><td>18</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li>主基督配得</li><li>久望主臨 Come, Thou Long-Expected Jesus</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</li><li>信心眼淚</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li>同享主餐</li><li>君王就在這裡</li><li>因祢堅持</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li>恩主美善愛眷</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</li><li>榮美屬祢</li><li>榮雨降下</li><li>歷煉荊途</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</li><li>猶大書榮耀頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li>真相</li><li>神同在</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</li><li>祢大能勝過我的限制</li><li>祢的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬物頌讚主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚美主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治這都市 (Heal Our Nation)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</li><li>靠向我主</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Shirley</span><span class="overlap-count">19 songs</span></div><div class="overlap-item"><span class="overlap-leader">TL</span><span class="overlap-count">16 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-phoebe" class="leader-card" data-leader-id="phoebe">
+        <header class="leader-header" onclick="toggleLeaderCard('phoebe')">
+            <div class="leader-header-content">
+                <h3>Phoebe</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">2</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">11</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">7</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li>How Great Thou Art 祢真偉大</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Raise A Hallelujah</li><li>主賜福您</li><li>人間行傳</li><li>君王就在這裡</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 垂絲柳樹下</li><li>堅定我</li><li>得勝</li><li>歷煉荊途</li><li>猶大書榮耀頌</li><li>至死忠心</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Michael</span><span class="overlap-count">4 songs</span></div><div class="overlap-item"><span class="overlap-leader">Shirley</span><span class="overlap-count">4 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-shirley" class="leader-card" data-leader-id="shirley">
+        <header class="leader-header" onclick="toggleLeaderCard('shirley')">
+            <div class="leader-header-content">
+                <h3>Shirley</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">12</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">68</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">43</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>祢配得</td><td>2</td></tr>
+<tr><td>2</td><td>十架的愛</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                <p class="no-data">All selected songs appeared only once</p>
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>4</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>3</td></tr>
+<tr><td>3</td><td>主賜福您</td><td>3</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>4</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>3</td></tr>
+<tr><td>3</td><td>主賜福您</td><td>3</td></tr>
+<tr><td>4</td><td>十架的愛</td><td>3</td></tr>
+<tr><td>5</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>2</td></tr>
+<tr><td>6</td><td>祢配得</td><td>2</td></tr>
+<tr><td>7</td><td>我願祢來</td><td>2</td></tr>
+<tr><td>8</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</td><td>2</td></tr>
+<tr><td>9</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</td><td>2</td></tr>
+<tr><td>10</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li>人間行傳</li><li>以愛還愛</li><li>信心眼淚</li><li>全地至高是我主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li>同享主餐</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>基督君尊配受眾俯拜</li><li>奔跑不放棄</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li>平安</li><li>恩主美善愛眷</li><li>愛的恩賜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li>我更需要祢</li><li>我願祢來</li><li>新的異象，新的方向</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li>神同在</li><li>祢配得</li><li>立志擺上</li><li>至愛的迴響</li><li>至死忠心</li><li>至聖的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li>這是愛</li><li>靠向我主</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Michael</span><span class="overlap-count">19 songs</span></div><div class="overlap-item"><span class="overlap-leader">Jeanne</span><span class="overlap-count">15 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+    <article id="leader-tl" class="leader-card" data-leader-id="tl">
+        <header class="leader-header" onclick="toggleLeaderCard('tl')">
+            <div class="leader-header-content">
+                <h3>TL</h3>
+                <span class="expand-icon">▼</span>
+            </div>
+            <div class="stats-summary">
+                <div class="stat-item">
+                    <span class="stat-value">13</span>
+                    <span class="stat-label">Services</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">74</span>
+                    <span class="stat-label">Songs</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-value">39</span>
+                    <span class="stat-label">Songs in common with others</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="leader-content">
+            <div class="stat-section">
+                <h4>Top Praise 1 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>至高尊貴的祢</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top Praise 2 Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>祢是我盼望</td><td>2</td></tr>
+<tr><td>2</td><td>歷煉荊途</td><td>2</td></tr>
+<tr><td>3</td><td>榮耀大君王</td><td>2</td></tr>
+<tr><td>4</td><td>我向祢禱告</td><td>2</td></tr>
+<tr><td>5</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 3 Peace Songs</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>4</td></tr>
+<tr><td>2</td><td>主賜福您</td><td>4</td></tr>
+<tr><td>3</td><td>三一頌</td><td>2</td></tr>
+<tr><td>4</td><td>祝福歌</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>Top 20 All Songs Combined</h4>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>4</td></tr>
+<tr><td>2</td><td>主賜福您</td><td>4</td></tr>
+<tr><td>3</td><td>榮耀大君王</td><td>3</td></tr>
+<tr><td>4</td><td>榮美屬祢</td><td>3</td></tr>
+<tr><td>5</td><td>祢是我盼望</td><td>2</td></tr>
+<tr><td>6</td><td>歷煉荊途</td><td>2</td></tr>
+<tr><td>7</td><td>三一頌</td><td>2</td></tr>
+<tr><td>8</td><td>憂愁痛悔的靈</td><td>2</td></tr>
+<tr><td>9</td><td>得著自由</td><td>2</td></tr>
+<tr><td>10</td><td>我向祢禱告</td><td>2</td></tr>
+<tr><td>11</td><td>至高尊貴的祢</td><td>2</td></tr>
+<tr><td>12</td><td>諸天頌讚</td><td>2</td></tr>
+<tr><td>13</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</td><td>2</td></tr>
+<tr><td>14</td><td>心生敬畏</td><td>2</td></tr>
+<tr><td>15</td><td>祝福歌</td><td>2</td></tr>
+
+        </tbody>
+    </table>
+    <p class="single-occurrence-note">All other songs appeared only once</p>
+    
+            </div>
+
+            <div class="stat-section">
+                <h4>2025 New Songs (since 2022)</h4>
+                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <ul class="song-list"><li>How Great Is Our God 神祢名尊貴</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Messiah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主求祢更新我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我要一心稱謝祢</li><li>榮耀大君王</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>祝福歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</li><li>耶穌配得至聖尊榮</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</li></ul>
+            </div>
+
+            <div class="stat-section">
+                <h4>Most Similar Leaders</h4>
+                <p class="section-note">Leaders with most songs in common</p>
+                <div class="overlap-list"><div class="overlap-item"><span class="overlap-leader">Michael</span><span class="overlap-count">16 songs</span></div><div class="overlap-item"><span class="overlap-leader">Cannis</span><span class="overlap-count">16 songs</span></div></div>
+            </div>
+        </div>
+    </article>
+    
+            </div>
+        </section>
+
+        <section id="section-b" class="section">
+            <div class="section-header">
+                <h2>Section B: Praise History 2025</h2>
+                <p class="section-description">Global worship statistics across all services</p>
+            </div>
+            <div class="global-container">
+                
+    <div class="global-stats">
+        <div class="highlight-card">
+            <h3>Total Unique Songs in 2025</h3>
+            <div class="big-number">234</div>
+        </div>
+
+        <div class="info-box">
+            <p><span class="new-song-indicator">●</span> Indicates a new song in 2025 (not used in 2022-2024)</p>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Praise 1 Songs</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>渴慕祢</td><td>5</td></tr>
+<tr><td>2</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>5</td></tr>
+<tr><td>3</td><td>大能的恩典</td><td>5</td></tr>
+<tr><td>4</td><td>神祢信實奇妙</td><td>4</td></tr>
+<tr><td>5</td><td>全因基督</td><td>4</td></tr>
+<tr><td>6</td><td>祢配得</td><td>4</td></tr>
+<tr><td>7</td><td>榮耀大君王</td><td>4</td></tr>
+<tr><td>8</td><td>好信息</td><td>4</td></tr>
+<tr><td>9</td><td>靠向我主</td><td>4</td></tr>
+<tr><td>10</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</td><td>4</td></tr>
+<tr><td>11</td><td>讚美永不息</td><td>4</td></tr>
+<tr><td>12</td><td>榮美屬祢</td><td>3</td></tr>
+<tr><td>13</td><td>信實的確據</td><td>3</td></tr>
+<tr><td>14</td><td>諸天頌讚</td><td>3</td></tr>
+<tr><td>15</td><td>至愛的迴響</td><td>3</td></tr>
+<tr><td>16</td><td>以愛還愛</td><td>3</td></tr>
+<tr><td>17</td><td>在我主光亮中</td><td>3</td></tr>
+<tr><td>18</td><td>得著自由</td><td>3</td></tr>
+<tr><td>19</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</td><td>3</td></tr>
+<tr><td>20</td><td>至高尊貴的祢</td><td>3</td></tr>
+
+        </tbody>
+    </table>
+    
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Praise 2 Songs</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>歷煉荊途</td><td>7</td></tr>
+<tr><td>2</td><td>因祢堅持</td><td>7</td></tr>
+<tr><td>3</td><td>至死忠心</td><td>6</td></tr>
+<tr><td>4</td><td>祢大能勝過我的限制</td><td>5</td></tr>
+<tr><td>5</td><td>同餅同杯</td><td>5</td></tr>
+<tr><td>6</td><td>這是愛</td><td>5</td></tr>
+<tr><td>7</td><td>平安的約</td><td>4</td></tr>
+<tr><td>8</td><td>得勝</td><td>4</td></tr>
+<tr><td>9</td><td>世界最美的聲音</td><td>4</td></tr>
+<tr><td>10</td><td>徹底</td><td>4</td></tr>
+<tr><td>11</td><td>信心眼淚</td><td>4</td></tr>
+<tr><td>12</td><td>人間行傳</td><td>4</td></tr>
+<tr><td>13</td><td>再次將我更新</td><td>4</td></tr>
+<tr><td>14</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>4</td></tr>
+<tr><td>15</td><td>求主給這世代看見異象</td><td>4</td></tr>
+<tr><td>16</td><td>得著自由</td><td>4</td></tr>
+<tr><td>17</td><td>好信息</td><td>4</td></tr>
+<tr><td>18</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</td><td>4</td></tr>
+<tr><td>19</td><td>同享主餐</td><td>3</td></tr>
+<tr><td>20</td><td>祢是我盼望</td><td>3</td></tr>
+
+        </tbody>
+    </table>
+    
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Praise 1 & 2 Combined</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>好信息</td><td>8</td></tr>
+<tr><td>2</td><td>歷煉荊途</td><td>7</td></tr>
+<tr><td>3</td><td>因祢堅持</td><td>7</td></tr>
+<tr><td>4</td><td>得著自由</td><td>7</td></tr>
+<tr><td>5</td><td>至死忠心</td><td>7</td></tr>
+<tr><td>6</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>7</td></tr>
+<tr><td>7</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>6</td></tr>
+<tr><td>8</td><td>再次將我更新</td><td>6</td></tr>
+<tr><td>9</td><td>榮耀大君王</td><td>6</td></tr>
+<tr><td>10</td><td>世界最美的聲音</td><td>6</td></tr>
+<tr><td>11</td><td>渴慕祢</td><td>5</td></tr>
+<tr><td>12</td><td>平安的約</td><td>5</td></tr>
+<tr><td>13</td><td>祢大能勝過我的限制</td><td>5</td></tr>
+<tr><td>14</td><td>信心眼淚</td><td>5</td></tr>
+<tr><td>15</td><td>同餅同杯</td><td>5</td></tr>
+<tr><td>16</td><td>十架的愛</td><td>5</td></tr>
+<tr><td>17</td><td>大能的恩典</td><td>5</td></tr>
+<tr><td>18</td><td>這是愛</td><td>5</td></tr>
+<tr><td>19</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</td><td>5</td></tr>
+<tr><td>20</td><td>神祢信實奇妙</td><td>4</td></tr>
+
+        </tbody>
+    </table>
+    
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 10 Multi-Leader Songs</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Songs chosen by at least 3 different praise leaders (excluding peace songs)</p>
+                
+    <table class="stats-table multi-leader-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Leaders</th>
+                <th>Total</th>
+                <th>Leader Names</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>至死忠心</td><td>6</td><td>7</td><td class="leaders-cell">Jeanne, Joseph, Keith, Michael, Phoebe, Shirley</td></tr>
+<tr><td>2</td><td>好信息</td><td>5</td><td>8</td><td class="leaders-cell">Alan, Cannis, Keith, Lobo, Shirley</td></tr>
+<tr><td>3</td><td>歷煉荊途</td><td>5</td><td>7</td><td class="leaders-cell">Alan, Cannis, Michael, Phoebe, TL</td></tr>
+<tr><td>4</td><td>得著自由</td><td>5</td><td>7</td><td class="leaders-cell">Cannis, Jeanne, Michael, Shirley, TL</td></tr>
+<tr><td>5</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>5</td><td>6</td><td class="leaders-cell">Cannis, Jeanne, Joseph, Shirley, TL</td></tr>
+<tr><td>6</td><td>再次將我更新</td><td>5</td><td>6</td><td class="leaders-cell">Cannis, Jeanne, Keith, Shirley, TL</td></tr>
+<tr><td>7</td><td>世界最美的聲音</td><td>5</td><td>6</td><td class="leaders-cell">Cannis, Jeanne, Keith, Shirley, TL</td></tr>
+<tr><td>8</td><td>渴慕祢</td><td>5</td><td>5</td><td class="leaders-cell">Cannis, Jeanne, Joseph, Keith, TL</td></tr>
+<tr><td>9</td><td>祢大能勝過我的限制</td><td>5</td><td>5</td><td class="leaders-cell">Cannis, Joseph, Keith, Michael, TL</td></tr>
+<tr><td>10</td><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</td><td>5</td><td>5</td><td class="leaders-cell">Alan, Joseph, Keith, Michael, Shirley</td></tr>
+
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 3 Peace Songs</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Song</th>
+                <th>Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>1</td><td>三一頌</td><td>29</td></tr>
+<tr><td>2</td><td>猶大書榮耀頌</td><td>19</td></tr>
+<tr><td>3</td><td>主賜福您</td><td>15</td></tr>
+
+        </tbody>
+    </table>
+    
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>New Songs in 2025</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Songs that appeared in 2025 but not in 2022-2024</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Messiah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Ocean Will Part</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Raise A Hallelujah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> The Lord Bless You and Keep You (John Rutter)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 世界之光</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主愛大能 (Power Of Your Love)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主求祢更新我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 信眾齊到主前 O Come All Ye Faithful</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 光輝的主 Here I Am to Worship</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 同證主美意</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 和平之君</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 垂絲柳樹下</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 帶我進入祢的同在</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 恩典之路</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 慈愛恩主，請祢來臨 (O Come, O Come, Emmanuel)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們歡迎君王降臨</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我獻上生命給祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的救贖者活著</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我要一心稱謝祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 打開天窗 Open the Gates</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 敬拜讚美神獨一的主 O Praise The Name (Anástasis)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天 (Day By Day)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 求作主僕（Make Me a Servant）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 甦醒 Resurrecting</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 祝福歌（恭喜恭喜）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖哉千千載（Holy Forever）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈之歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈請祢來充滿我心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬物頌讚主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 詩篇 Psalm 149</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓目光單轉向祢(Turn your eyes upon Jesus)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚美主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 連於祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治這都市 (Heal Our Nation)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 願你平安</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 𧶽我自由</li></ul>
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Songs from 2024 Not in 2025</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Songs that were used in 2024 but not continued in 2025</p>
+                <ul class="song-list"><li>Be Still</li><li>Complete</li><li>Glorify Thy Name</li><li>O Come All Ye Faithful</li><li>Oceans will part</li><li>Seek Ye First</li><li>一</li><li>三一頌 Docology</li><li>主信實無變</li><li>主啊! 我願意</li><li>主是我萬有 Be Thou My Vision</li><li>主禱文 (在天上的父)</li><li>主禱文 (請教導我們禱告)</li><li>主禱文（請教導我們禱告）</li><li>何等榮耀美麗的主</li><li>保守我心￼</li><li>信眾齊到主前</li><li>全地頌揚上主 Come and Sing Praises</li><li>全為祢獻呈</li><li>全然奉獻</li><li>十字架</li><li>十架的冠冕</li><li>即或不然</li><li>原來祢竟多麼深愛我</li><li>只因愛</li><li>可以麼</li><li>向至高者讚美</li><li>君尊僕人 The Servant King</li><li>唯有耶穌</li><li>啟⽰錄</li><li>在地若天</li><li>天父</li><li>好信息 Chorus & Bridge Only</li><li>將最好的獻主 Give of Your Best to the Master</li><li>恩典</li><li>愛的記號</li><li>感謝神</li><li>慈愛恩主，請祢來臨 O Come, O Come, Emmanuel</li><li>我們都是這樣靠主走過的</li><li>我在這裡</li><li>我心尊主為大</li><li>我渴望看見</li><li>我要一心稱謝祢 (讃美之泉)</li><li>接收</li><li>是為了我罪</li><li>更新我</li><li>最好的福氣</li><li>永約的神</li><li>求主聽禱聲</li><li>無盡愛</li><li>玻璃海</li><li>發現祢</li><li>神！祢在掌管</li><li>祢是彌賽亞</li><li>祢是配得</li><li>祢的深恩</li><li>祢真偉大</li><li>福杯滿溢</li><li>約書亞 ()</li><li>聖哉三一</li><li>聽啊！天使高聲唱</li><li>萬有要歌頌神</li><li>藏我</li><li>藏祢懷內</li><li>詩歌</li><li>誠心獻奉祢</li><li>讓我靈頌祢名</li><li>進入祢的同在</li><li>除祢以外</li><li>靠近</li><li>順服</li><li>頌讚未停</li><li>頌遍天際</li><li>願祢公義降臨</li><li>願祢用愛吸引我</li></ul>
+            </div>
+        </div>
+
+        <div id="all-songs" class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>All Unique Songs in 2025</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Complete alphabetical list of all songs used in 2025</p>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li>Great Is Thy Faithfulness 主恩何信實</li><li>How Great Is Our God 神祢名尊貴</li><li>How Great Thou Art 祢真偉大</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Messiah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Ocean Will Part</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Raise A Hallelujah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> The Lord Bless You and Keep You (John Rutter)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</li><li>一生的恩惠</li><li>三一頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 世界之光</li><li>世界最美的聲音</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li>主基督配得</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主愛大能 (Power Of Your Love)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主求祢更新我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li>主賜福您</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</li><li>久望主臨 Come, Thou Long-Expected Jesus</li><li>人間行傳</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</li><li>以愛還愛</li><li>但主愛更深廣</li><li>何等恩典</li><li>何等美麗名字</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</li><li>信實的確據</li><li>信心眼淚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 信眾齊到主前 O Come All Ye Faithful</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 光輝的主 Here I Am to Worship</li><li>全因基督</li><li>全地至高是我主</li><li>全是祢恩典</li><li>再次將我更新</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li>同享主餐</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 同證主美意</li><li>同餅同杯</li><li>君王就在這裡</li><li>呼喚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 和平之君</li><li>唯一</li><li>唯獨在基督裡</li><li>唯獨祢愛我一生</li><li>喜愛祢聲音</li><li>回到世界中心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li>因主的名</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>因祢堅持</li><li>在我主光亮中</li><li>坐在寶座上聖潔羔羊</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 垂絲柳樹下</li><li>基督君尊配受眾俯拜</li><li>基督的使者</li><li>堅定我</li><li>堅立</li><li>大能的恩典</li><li>天地讚美</li><li>天父⋯</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</li><li>奔跑不放棄</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</li><li>安靜 Still</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 帶我進入祢的同在</li><li>平安</li><li>平安的約</li><li>得勝</li><li>得著自由</li><li>徹底</li><li>心生敬畏</li><li>恩主美善愛眷</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 恩典之路</li><li>愛的恩賜</li><li>愛，再不是傳說</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 慈愛恩主，請祢來臨 (O Come, O Come, Emmanuel)</li><li>憂愁痛悔的靈</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li>我們呼求</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們歡迎君王降臨</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</li><li>我向祢禱告</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</li><li>我心安穩</li><li>我心敞開</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</li><li>我更需要祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我獻上生命給祢</li><li>我的千古保障</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</li><li>我的心，祢要稱頌耶和華</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的救贖者活著</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我要一心稱謝祢</li><li>我要一生一世住在祢聖殿</li><li>我願祢來</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 打開天窗 Open the Gates</li><li>投靠</li><li>捉緊我</li><li>救恩</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 敬拜讚美神獨一的主 O Praise The Name (Anástasis)</li><li>新的異象，新的方向</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</li><li>晚禱</li><li>更深愛祢</li><li>最美好…盡力愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</li><li>有神同往</li><li>期待耶穌</li><li>榮美屬祢</li><li>榮耀大君王</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</li><li>榮耀的呼召</li><li>榮耀頌 Doxology</li><li>榮雨降下</li><li>歷煉荊途</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天 (Day By Day)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</li><li>每當我們同心敬拜</li><li>永恆的祢</li><li>永約之誓</li><li>求主給這世代看見異象</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 求作主僕（Make Me a Servant）</li><li>決心跟祢</li><li>渴慕祢</li><li>渴慕聖潔</li><li>滿有能力</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</li><li>無論那刻</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li>猶大書榮耀頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li>獻給祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li>生命活水充滿我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 甦醒 Resurrecting</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>直到我遇到祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li>真相</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li>祝福歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 祝福歌（恭喜恭喜）</li><li>神同在</li><li>神坐著為王</li><li>神是我這生供應者</li><li>神的帳幕在人間</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</li><li>神祢信實奇妙</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</li><li>祢坐著為王</li><li>祢大能勝過我的限制</li><li>祢成就救恩</li><li>祢是我牧人</li><li>祢是我盼望</li><li>祢是我神</li><li>祢的愛</li><li>祢讓我生命改變</li><li>祢配得</li><li>立志擺上</li><li>繼續相信</li><li>耶和華以勒</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</li><li>耶穌我感謝祢</li><li>耶穌配得至聖尊榮</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖哉千千載（Holy Forever）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈之歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈請祢來充滿我心</li><li>至愛的迴響</li><li>至死忠心</li><li>至聖的主</li><li>至高尊貴的祢</li><li>與神同行（青年新歌）</li><li>萬世君王</li><li>萬代君主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬物頌讚主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 詩篇 Psalm 149</li><li>認定祢</li><li>諸天頌讚</li><li>讓我</li><li>讓我得見祢的榮面</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓目光單轉向祢(Turn your eyes upon Jesus)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚美主</li><li>讚美永不息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</li><li>讚頌祢的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</li><li>這就是我的神</li><li>這愛極深厚</li><li>這是愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 連於祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</li><li>逾越</li><li>遮蓋我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治這都市 (Heal Our Nation)</li><li>重燃薪火</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</li><li>靠向我主</li><li>靠著祢寶血</li><li>響應</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 願你平安</li><li>願祢國度彰顯</li><li>願祢平安</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 𧶽我自由</li></ul>
+            </div>
+        </div>
+    </div>
+    
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Generated on 2026-01-16 12:43:23</p>
+        <p>Data source: Praise History on Google Drive</p>
+        <p>This is an AI agent-coded product</p>
+    </footer>
+
+    <script>
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const href = this.getAttribute('href');
+                const target = document.querySelector(href);
+                if (target) {
+                    // Check if this is a leader card link
+                    if (href.startsWith('#leader-')) {
+                        const leaderId = href.substring(8); // Remove '#leader-' prefix
+                        const leaderCard = document.querySelector(`[data-leader-id="${leaderId}"]`);
+
+                        if (leaderCard) {
+                            // Collapse all leader cards
+                            const allLeaderCards = document.querySelectorAll('.leader-card');
+                            allLeaderCards.forEach(card => {
+                                card.classList.add('collapsed');
+                            });
+
+                            // Expand the target leader card
+                            leaderCard.classList.remove('collapsed');
+
+                            // Wait for expansion animation to complete before scrolling
+                            // The CSS transition is 0.4s, so wait 450ms to be safe
+                            setTimeout(() => {
+                                target.scrollIntoView({
+                                    behavior: 'smooth',
+                                    block: 'start'
+                                });
+                            }, 450);
+                            return;
+                        }
+                    }
+
+                    // For non-leader links, scroll immediately
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            navLinks.classList.toggle('mobile-active');
+        }
+
+        // Toggle leader card - when one is expanded, collapse all others
+        function toggleLeaderCard(leaderId) {
+            const clickedCard = document.querySelector(`[data-leader-id="${leaderId}"]`);
+            const allLeaderCards = document.querySelectorAll('.leader-card');
+
+            // If the clicked card is already expanded, just collapse it
+            if (!clickedCard.classList.contains('collapsed')) {
+                clickedCard.classList.add('collapsed');
+                return;
+            }
+
+            // Collapse all leader cards
+            allLeaderCards.forEach(card => {
+                card.classList.add('collapsed');
+            });
+
+            // Expand the clicked card
+            clickedCard.classList.remove('collapsed');
+        }
+
+        // Toggle global section - independent collapsing
+        function toggleGlobalSection(header) {
+            const section = header.parentElement;
+            section.classList.toggle('collapsed');
+        }
+
+        // Initialize all leader cards as collapsed by default
+        document.addEventListener('DOMContentLoaded', () => {
+            const leaderCards = document.querySelectorAll('.leader-card');
+            leaderCards.forEach(card => {
+                card.classList.add('collapsed');
+            });
+
+            // Initialize all global sections as collapsed by default
+            const globalSections = document.querySelectorAll('.collapsible');
+            globalSections.forEach(section => {
+                section.classList.add('collapsed');
+            });
+        });
+
+        // Highlight active section in navigation
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Dropdown toggle
+        document.querySelector('.dropdown-btn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            this.parentElement.classList.toggle('active');
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            const dropdown = document.querySelector('.dropdown');
+            if (!dropdown.contains(e.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+
+        // Close dropdown when a link is clicked
+        document.querySelectorAll('.dropdown-content .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.querySelector('.dropdown').classList.remove('active');
+            });
+        });
+    
+    </script>
+</body>
+</html>
