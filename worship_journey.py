@@ -8,7 +8,7 @@ import csv
 import re
 from datetime import datetime
 from collections import Counter, defaultdict
-from typing import List, Dict, Set, Tuple
+from typing import List, Dict, Set, Tuple, Optional
 
 # ============================================================================
 # SONG NAME MAPPINGS
@@ -67,6 +67,108 @@ SONG_NAME_MAPPINGS = {
 
     # Lord's Prayer
     "主禱文 (請教導我們禱告)": "主禱文（請教導我們禱告）",
+
+    # New song name groupings
+    "至愛的回嚮": "至愛的迴響",
+    "新的異象，新的方向": "新的異象 新的方向",
+    "坐在寶坐上聖潔羔羊": "坐在寶座上聖潔羔羊",
+    "神真正心意 (The heart of worship)": "神真正心意 (The Heart of Worship)",
+}
+
+# ============================================================================
+# PUBLISHER MAPPINGS
+# ============================================================================
+
+# Publisher consolidation mappings - maps variants to canonical name
+PUBLISHER_MAPPINGS = {
+    # 余子麟 group
+    "Alan Yu": "余子麟",
+    "林四": "余子麟",
+
+    # Tsz-Lam Mak group
+    "Tsz-Lam Mak": "麥子霖",
+
+    # Stream of Praise group
+    "Stream Of Praise Music": "Stream of Praise Music",
+    "Stream of Praise": "Stream of Praise Music",
+    "Steam of Praise": "Stream of Praise Music",
+    "Stream of Praise Musice": "Stream of Praise Music",
+
+    # Hong Kong Christian Music group
+    "香港基督徒音樂協會": "香港基督徒音樂事工協會",
+    "香港基督徒音事工協會": "香港基督徒音樂事工協會",
+    "香港基督徒音樂事工協會(HKACM)": "香港基督徒音樂事工協會",
+
+    # Salty Egg Music group
+    "鹹蛋⾳樂事⼯": "鹹蛋音樂事工",
+    "鹹蛋音樂事": "鹹蛋音樂事工",
+
+    # Milk & Honey Worship group
+    "©️Milk&Honey Worship": "Milk & Honey Worship",
+    "Milk&Honey Worship": "Milk & Honey Worship",
+
+    # Herald Crusades group
+    "角聲佈道團": "角聲使團",
+
+    # One Circle group
+    "One Circle Limited": "One Circle Ltd",
+    "同心圓敬拜福音平台": "One Circle Ltd",
+
+    # Flow Church group
+    "Flow Music, Flow Church": "Flow Church",
+    "Flow Music": "Flow Church",
+
+    # Gsus Music Ministry group
+    "Gsus Music Ministry": "Gsus Music Ministry Ltd",
+
+    # Esther Chow group
+    "周敏曦": "Esther Chow",
+
+    # AFC Vancouver group
+    "AFC": "AFC Vancouver",
+    "加拿大基督使者協會": "AFC Vancouver",
+
+    # Ruth Chen group
+    "Ruth Chen Music": "曾路得",
+    "Ruth Chen": "曾路得",
+
+    # Worship Nations group
+    "Worship Nations / 玻璃海樂團": "Worship Nations",
+    "Worship Nations X 玻璃海樂團": "Worship Nations",
+    "Worship Nation": "Worship Nations",
+    "© 2019 Worship Nations": "Worship Nations",
+
+    # Grace Melodia group
+    "頌恩旋律": "Grace Melodia",
+
+    # CantonHymn group
+    "Cantonhymn": "CantonHymn",
+
+    # Son Music group
+    "Public Domain, Son Music Worship Ministry": "Son Music",
+}
+
+# ============================================================================
+# STATIC SONG COPYRIGHT MAPPINGS
+# ============================================================================
+
+# Static mappings for specific songs to their copyright owners
+# These override the fuzzy matching logic
+STATIC_SONG_COPYRIGHT_MAPPINGS = {
+    "小小的雙手": "玻璃海樂團",
+    "是為祢預備": "Milk & Honey Worship",
+    "仍然敬拜": "Flow Church",
+    "最美好的仗": "香港基督徒音樂事工協會",
+    "主超過我在面對的紅海": "RedSea Music",
+    "讚頌未停": "頌恩旋律",
+    "坐在寶座上聖潔羔羊": "Stream of Praise Music",
+    "我屬祢": "鹹蛋音樂事工",
+}
+
+# Songs that should explicitly have NO publisher (medleys, compilations, etc.)
+# Map to None to force them to be unmatched
+SONGS_WITHOUT_PUBLISHER = {
+    "Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）",
 }
 
 # ============================================================================
@@ -159,6 +261,134 @@ def consolidate_multiline_rows(rows: List[List[str]]) -> List[List[str]]:
         consolidated.append(current_row)
 
     return consolidated
+
+
+def load_copyright_metadata() -> Dict[str, str]:
+    """
+    Load copyright metadata from songindex CSV file.
+    Returns a dictionary mapping song names to copyright owners.
+    """
+    metadata = {}
+
+    try:
+        with open('songindex_20260116.csv', 'r', encoding='utf-8-sig') as f:
+            reader = csv.reader(f)
+            for row in reader:
+                # Skip header rows and empty rows
+                if len(row) < 5:
+                    continue
+                if row[0].strip() in ['', 'Number', 'Last Updated:']:
+                    continue
+
+                # Extract song name (column 1) and copyright (column 4)
+                song_name = row[1].strip()
+                copyright_owner = row[4].strip()
+
+                # Skip if song name or copyright is empty
+                if not song_name or not copyright_owner:
+                    continue
+
+                metadata[song_name] = copyright_owner
+
+    except FileNotFoundError:
+        print("Warning: songindex_20260116.csv not found. Copyright data will be unavailable.")
+
+    return metadata
+
+
+def consolidate_publisher_name(publisher: str) -> str:
+    """
+    Consolidate publisher names according to PUBLISHER_MAPPINGS.
+
+    Args:
+        publisher: Original publisher name from metadata
+
+    Returns:
+        Canonical publisher name
+    """
+    if publisher in PUBLISHER_MAPPINGS:
+        return PUBLISHER_MAPPINGS[publisher]
+    return publisher
+
+
+def map_song_to_copyright(song_name: str, copyright_metadata: Dict[str, str]) -> Optional[str]:
+    """
+    Map a cleaned song name to its copyright owner using fuzzy matching.
+
+    Args:
+        song_name: The cleaned song name from praisehistory
+        copyright_metadata: Dictionary mapping metadata song names to copyright owners
+
+    Returns:
+        Copyright owner name or None if no match found
+    """
+    if not copyright_metadata:
+        return None
+
+    # Normalize the song name (same normalization as clean_song_name)
+    def normalize(s: str) -> str:
+        # Replace character variants with 祢
+        s = s.replace('你', '祢').replace('袮', '祢')
+        return s.strip()
+
+    normalized_song = normalize(song_name)
+
+    # Strategy -1: Check exclusion list first (songs that should have NO publisher)
+    for excluded_song in SONGS_WITHOUT_PUBLISHER:
+        if normalize(excluded_song) == normalized_song:
+            return None
+
+    # Strategy 0: Check static mappings first (highest priority)
+    for static_song, static_publisher in STATIC_SONG_COPYRIGHT_MAPPINGS.items():
+        if normalize(static_song) == normalized_song:
+            return consolidate_publisher_name(static_publisher)
+
+    # Strategy 1: Try exact match
+    for metadata_song, copyright in copyright_metadata.items():
+        normalized_metadata = normalize(metadata_song)
+        if normalized_song == normalized_metadata:
+            return consolidate_publisher_name(copyright)
+
+    # Strategy 2: Check if cleaned song contains metadata song (substring)
+    for metadata_song, copyright in copyright_metadata.items():
+        normalized_metadata = normalize(metadata_song)
+        if normalized_metadata and normalized_metadata in normalized_song:
+            return consolidate_publisher_name(copyright)
+
+    # Strategy 3: Check if metadata song contains cleaned song (reverse substring)
+    for metadata_song, copyright in copyright_metadata.items():
+        normalized_metadata = normalize(metadata_song)
+        if normalized_song and normalized_song in normalized_metadata:
+            return consolidate_publisher_name(copyright)
+
+    # Strategy 4: Try matching against canonical song names from SONG_NAME_MAPPINGS
+    # Check if the song_name appears in the mappings dictionary values
+    for original_variant, canonical_name in SONG_NAME_MAPPINGS.items():
+        if normalize(canonical_name) == normalized_song:
+            # Try to match the original variant with metadata
+            for metadata_song, copyright in copyright_metadata.items():
+                normalized_metadata = normalize(metadata_song)
+                normalized_variant = normalize(original_variant)
+                if normalized_metadata in normalized_variant or normalized_variant in normalized_metadata:
+                    return consolidate_publisher_name(copyright)
+
+    return None
+
+
+def get_all_publishers_from_metadata(copyright_metadata: Dict[str, str]) -> List[str]:
+    """
+    Extract unique publisher names from copyright metadata.
+
+    Args:
+        copyright_metadata: Dictionary mapping song names to copyright owners
+
+    Returns:
+        Sorted list of unique publisher names (consolidated)
+    """
+    publishers = set()
+    for publisher in copyright_metadata.values():
+        publishers.add(consolidate_publisher_name(publisher))
+    return sorted(publishers)
 
 
 def extract_songs_from_columns(row: List[str], indices: List[int]) -> List[str]:
@@ -427,6 +657,135 @@ def get_unique_songs_2025(services: List[Dict]) -> List[str]:
     return sorted(all_songs)
 
 
+def calculate_publisher_stats(services: List[Dict], year: int = 2025) -> Dict:
+    """
+    Calculate publisher/copyright statistics for all songs in the specified year.
+
+    Args:
+        services: List of all service records
+        year: Year to calculate statistics for
+
+    Returns:
+        Dictionary containing top20_publishers (excluding peace),
+        top20_praise1, top20_praise2, top20_peace, unmatched_songs, and all_publishers
+    """
+    # Filter services by year
+    year_services = [s for s in services if s['year'] == year]
+
+    # Load copyright metadata
+    copyright_metadata = load_copyright_metadata()
+    all_publishers = get_all_publishers_from_metadata(copyright_metadata)
+
+    # Count songs - separated by category
+    all_songs_counter = Counter()
+    praise1_counter = Counter()
+    praise2_counter = Counter()
+    peace_counter = Counter()
+    praise_only_counter = Counter()  # Praise1 + Praise2 (excluding peace)
+
+    # Publisher counters for different categories
+    copyright_counter = Counter()  # Praise only (excluding peace)
+    copyright_to_songs = defaultdict(list)  # Praise only
+
+    copyright_praise1_counter = Counter()
+    copyright_praise1_to_songs = defaultdict(list)
+
+    copyright_praise2_counter = Counter()
+    copyright_praise2_to_songs = defaultdict(list)
+
+    copyright_peace_counter = Counter()
+    copyright_peace_to_songs = defaultdict(list)
+
+    unmatched_songs = []  # Songs with no publisher match
+
+    for svc in year_services:
+        all_songs_counter.update(svc['all_songs'])
+        praise1_counter.update(svc['praise1'])
+        praise2_counter.update(svc['praise2'])
+        peace_counter.update(svc['peace'])
+        praise_only_counter.update(svc['praise1'] + svc['praise2'])
+
+    # Map praise1 songs to publishers
+    for song, count in praise1_counter.items():
+        copyright_owner = map_song_to_copyright(song, copyright_metadata)
+        if copyright_owner is not None:
+            copyright_praise1_counter[copyright_owner] += count
+            copyright_praise1_to_songs[copyright_owner].append((song, count))
+
+    # Map praise2 songs to publishers
+    for song, count in praise2_counter.items():
+        copyright_owner = map_song_to_copyright(song, copyright_metadata)
+        if copyright_owner is not None:
+            copyright_praise2_counter[copyright_owner] += count
+            copyright_praise2_to_songs[copyright_owner].append((song, count))
+
+    # Map peace songs to publishers
+    for song, count in peace_counter.items():
+        copyright_owner = map_song_to_copyright(song, copyright_metadata)
+        if copyright_owner is not None:
+            copyright_peace_counter[copyright_owner] += count
+            copyright_peace_to_songs[copyright_owner].append((song, count))
+
+    # Map praise-only songs to publishers (excluding peace)
+    for song, count in praise_only_counter.items():
+        copyright_owner = map_song_to_copyright(song, copyright_metadata)
+        if copyright_owner is None:
+            unmatched_songs.append((song, count))
+        else:
+            copyright_counter[copyright_owner] += count
+            copyright_to_songs[copyright_owner].append((song, count))
+
+    # Generate subsection 1: Top 20 publishers (praise only, excluding peace)
+    top20_publishers = []
+    for publisher, total_count in copyright_counter.most_common(20):
+        songs_list = sorted(copyright_to_songs[publisher], key=lambda x: x[1], reverse=True)
+        top10_songs = songs_list[:10]  # Limit to top 10 songs
+        top20_publishers.append((publisher, total_count, top10_songs))
+
+    # Generate subsection 1a: Top 20 publishers for Praise1
+    top20_praise1 = []
+    for publisher, total_count in copyright_praise1_counter.most_common(20):
+        songs_list = sorted(copyright_praise1_to_songs[publisher], key=lambda x: x[1], reverse=True)
+        top10_songs = songs_list[:10]  # Limit to top 10 songs
+        top20_praise1.append((publisher, total_count, top10_songs))
+
+    # Generate subsection 1b: Top 20 publishers for Praise2
+    top20_praise2 = []
+    for publisher, total_count in copyright_praise2_counter.most_common(20):
+        songs_list = sorted(copyright_praise2_to_songs[publisher], key=lambda x: x[1], reverse=True)
+        top10_songs = songs_list[:10]  # Limit to top 10 songs
+        top20_praise2.append((publisher, total_count, top10_songs))
+
+    # Generate subsection 1c: Top 20 publishers for Peace
+    top20_peace = []
+    for publisher, total_count in copyright_peace_counter.most_common(20):
+        songs_list = sorted(copyright_peace_to_songs[publisher], key=lambda x: x[1], reverse=True)
+        top10_songs = songs_list[:10]  # Limit to top 10 songs
+        top20_peace.append((publisher, total_count, top10_songs))
+
+    # Generate subsection 2: Unmatched songs (sorted by count descending)
+    unmatched_songs_sorted = sorted(unmatched_songs, key=lambda x: x[1], reverse=True)
+
+    # Generate subsection 3: All publishers
+    all_publishers_list = []
+    for publisher in all_publishers:
+        count = copyright_counter.get(publisher, 0)
+        songs = sorted(copyright_to_songs.get(publisher, []), key=lambda x: x[1], reverse=True)
+        all_publishers_list.append((publisher, count, songs))
+
+    # Sort by count descending, then by publisher name
+    all_publishers_list.sort(key=lambda x: (-x[1], x[0]))
+
+    return {
+        'top20_publishers': top20_publishers,
+        'top20_praise1': top20_praise1,
+        'top20_praise2': top20_praise2,
+        'top20_peace': top20_peace,
+        'unmatched_songs': unmatched_songs_sorted,
+        'all_publishers': all_publishers_list,
+    }
+
+
 # ============================================================================
 # STATISTICS CALCULATION - SECTION B (GLOBAL)
 # ============================================================================
@@ -534,7 +893,7 @@ def format_song_name(song: str) -> str:
         return f'<span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> {song}'
     return song
 
-def generate_html(leader_stats: Dict, global_stats: Dict, output_path: str):
+def generate_html(leader_stats: Dict, global_stats: Dict, publisher_stats: Dict, output_path: str):
     """
     Generate self-contained HTML file with embedded CSS and JavaScript.
     """
@@ -553,6 +912,9 @@ def generate_html(leader_stats: Dict, global_stats: Dict, output_path: str):
 
     # Generate global section HTML
     global_section_html = generate_global_section(global_stats)
+
+    # Generate publisher section HTML
+    publisher_section_html = generate_publisher_section(publisher_stats)
 
     # Generate navigation menu
     nav_menu_html = generate_nav_menu(sorted_leaders)
@@ -600,11 +962,13 @@ def generate_html(leader_stats: Dict, global_stats: Dict, output_path: str):
                 {global_section_html}
             </div>
         </section>
+
+        {publisher_section_html}
     </main>
 
     <footer>
         <p>Generated on {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
-        <p>Data source: Praise History on Google Drive</p>
+        <p>Data source: "Praise History" and "Song Index" on Google Drive</p>
         <p>This is an AI agent-coded product</p>
     </footer>
 
@@ -630,6 +994,7 @@ def generate_nav_menu(leaders: List[str]) -> str:
         <div class="nav-links">
             <a href="#section-a" class="nav-link">Praise Leaders</a>
             <a href="#section-b" class="nav-link">Global Stats</a>
+            <a href="#publisher" class="nav-link">Publisher</a>
             <a href="#all-songs" class="nav-link">All Songs</a>
             <div class="dropdown">
                 <button class="dropdown-btn">Leaders ▾</button>
@@ -884,6 +1249,211 @@ def generate_multi_leader_table(songs: List[Tuple[str, int, List[str], int]]) ->
             {rows}
         </tbody>
     </table>
+    """
+
+
+def generate_publisher_table(publishers: List[Tuple[str, int, List[Tuple[str, int]]]]) -> str:
+    """
+    Generate HTML table for publisher statistics with expandable rows.
+
+    Args:
+        publishers: List of (publisher_name, total_count, songs_list)
+                   Note: songs_list may be limited to top 10
+
+    Returns:
+        HTML string for the publisher table
+    """
+    if not publishers:
+        return '<p class="no-data">No publisher data available</p>'
+
+    rows = ''
+    for i, (publisher, total_count, songs) in enumerate(publishers, 1):
+        # Generate song list for this publisher
+        song_rows = ''
+        songs_total = 0
+        for song, count in songs:
+            formatted_song = format_song_name(song)
+            song_rows += f'<tr><td>{formatted_song}</td><td>{count}</td></tr>\n'
+            songs_total += count
+
+        if not song_rows:
+            song_rows = '<tr><td colspan="2">No songs</td></tr>'
+
+        # Add note if only showing top 10 and there are more songs
+        note_html = ''
+        if len(songs) >= 10 and songs_total < total_count:
+            remaining_count = total_count - songs_total
+            note_html = f'<p class="publisher-note">Showing top 10 songs only. {remaining_count} additional occurrences from other songs not shown.</p>'
+
+        nested_table = f"""
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                {song_rows}
+            </tbody>
+        </table>
+        {note_html}
+        """
+
+        rows += f"""
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>{i}</td>
+            <td>{publisher}</td>
+            <td>{total_count}</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                {nested_table}
+            </td>
+        </tr>
+        """
+
+    return f"""
+    <table class="stats-table publisher-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Publisher</th>
+                <th>Total Occurrences</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {rows}
+        </tbody>
+    </table>
+    """
+
+
+def generate_unmatched_songs_table(songs: List[Tuple[str, int]]) -> str:
+    """
+    Generate HTML table for songs not matched to any publisher.
+
+    Args:
+        songs: List of (song_name, count) tuples
+
+    Returns:
+        HTML string for the unmatched songs table
+    """
+    if not songs:
+        return '<p class="no-data">All songs matched to publishers!</p>'
+
+    rows = ''
+    for song, count in songs:
+        formatted_song = format_song_name(song)
+        rows += f'<tr><td>{formatted_song}</td><td>{count}</td></tr>\n'
+
+    return f"""
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Occurrences</th>
+            </tr>
+        </thead>
+        <tbody>
+            {rows}
+        </tbody>
+    </table>
+    """
+
+
+def generate_publisher_section(stats: Dict) -> str:
+    """
+    Generate HTML for Section C: Publisher.
+
+    Args:
+        stats: Publisher statistics dictionary
+
+    Returns:
+        HTML string for the complete publisher section
+    """
+    top20_table = generate_publisher_table(stats['top20_publishers'])
+    top20_praise1_table = generate_publisher_table(stats['top20_praise1'])
+    top20_praise2_table = generate_publisher_table(stats['top20_praise2'])
+    top20_peace_table = generate_publisher_table(stats['top20_peace'])
+    unmatched_table = generate_unmatched_songs_table(stats['unmatched_songs'])
+    all_publishers_table = generate_publisher_table(stats['all_publishers'])
+
+    return f"""
+    <section id="publisher">
+        <div class="section-header">
+            <h2>Section C: Publisher</h2>
+            <p class="section-description">Analysis of songs by copyright/publisher ownership</p>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences (Excluding Peace Songs)</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Praise 1 & 2 (excluding Peace songs) in 2025. Click publisher row to view songs.</p>
+                {top20_table}
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences in Praise 1</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Praise 1 in 2025. Click publisher row to view songs.</p>
+                {top20_praise1_table}
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences in Praise 2</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Praise 2 in 2025. Click publisher row to view songs.</p>
+                {top20_praise2_table}
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences in Peace Songs</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Peace in 2025. Click publisher row to view songs.</p>
+                {top20_peace_table}
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Songs Not Matched to Any Publisher</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Songs that could not be matched to any publisher in the metadata</p>
+                {unmatched_table}
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>All Publishers (Complete List)</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Complete list of all publishers from metadata, sorted by 2025 occurrences. Click publisher row to view songs.</p>
+                {all_publishers_table}
+            </div>
+        </div>
+    </section>
     """
 
 
@@ -1326,6 +1896,82 @@ def get_embedded_css() -> str:
             font-size: 0.9rem;
         }
 
+        /* Publisher Tables */
+        .publisher-table {
+            width: 100%;
+        }
+
+        .publisher-row {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .publisher-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .publisher-row .expand-icon {
+            display: inline-block;
+            transition: transform 0.3s;
+            font-size: 1rem;
+            color: #3498DB;
+        }
+
+        .publisher-row.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .publisher-songs-row {
+            background: #f8f9fa;
+        }
+
+        .publisher-songs-row td {
+            padding: 1rem !important;
+        }
+
+        .nested-songs-table {
+            width: 100%;
+            margin: 0;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .nested-songs-table thead {
+            background: #ecf0f1;
+        }
+
+        .nested-songs-table th {
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #bdc3c7;
+        }
+
+        .nested-songs-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .nested-songs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .nested-songs-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .publisher-note {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #FFF3CD;
+            border-left: 3px solid #FFC107;
+            border-radius: 4px;
+            color: #856404;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
         /* Global Stats */
         .global-container {
             background: white;
@@ -1498,6 +2144,41 @@ def get_embedded_javascript() -> str:
             section.classList.toggle('collapsed');
         }
 
+        // Toggle publisher row to show/hide songs
+        function togglePublisherRow(row) {
+            const songsRow = row.nextElementSibling;
+            const expandIcon = row.querySelector('.expand-icon');
+
+            // Check if this row is currently expanded
+            const isCurrentlyExpanded = row.classList.contains('expanded');
+
+            if (songsRow && songsRow.classList.contains('publisher-songs-row')) {
+                // If clicking an already expanded row, just collapse it
+                if (isCurrentlyExpanded) {
+                    songsRow.style.display = 'none';
+                    expandIcon.textContent = '▼';
+                    row.classList.remove('expanded');
+                } else {
+                    // Collapse all other publisher rows in all tables
+                    const allPublisherRows = document.querySelectorAll('.publisher-row');
+                    allPublisherRows.forEach(r => {
+                        const sRow = r.nextElementSibling;
+                        const eIcon = r.querySelector('.expand-icon');
+                        if (sRow && sRow.classList.contains('publisher-songs-row')) {
+                            sRow.style.display = 'none';
+                            eIcon.textContent = '▼';
+                            r.classList.remove('expanded');
+                        }
+                    });
+
+                    // Expand the clicked row
+                    songsRow.style.display = 'table-row';
+                    expandIcon.textContent = '▲';
+                    row.classList.add('expanded');
+                }
+            }
+        }
+
         // Initialize all leader cards as collapsed by default
         document.addEventListener('DOMContentLoaded', () => {
             const leaderCards = document.querySelectorAll('.leader-card');
@@ -1586,10 +2267,16 @@ def main():
     global_stats = calculate_global_stats(services, year=2025)
     print(f"   Found {global_stats['total_unique_songs']} unique songs")
 
+    # Calculate publisher statistics
+    print("\n4. Calculating Section C - Publisher Statistics...")
+    publisher_stats = calculate_publisher_stats(services, year=2025)
+    print(f"   Found {len(publisher_stats['top20_publishers'])} publishers with songs in 2025")
+    print(f"   {len(publisher_stats['unmatched_songs'])} songs not matched to any publisher")
+
     # Generate HTML
-    print("\n4. Generating HTML output...")
+    print("\n5. Generating HTML output...")
     output_path = 'index.html'
-    generate_html(leader_stats, global_stats, output_path)
+    generate_html(leader_stats, global_stats, publisher_stats, output_path)
     print(f"   HTML saved to: {output_path}")
 
     print("\n" + "=" * 50)

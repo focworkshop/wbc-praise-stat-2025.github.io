@@ -421,6 +421,82 @@
             font-size: 0.9rem;
         }
 
+        /* Publisher Tables */
+        .publisher-table {
+            width: 100%;
+        }
+
+        .publisher-row {
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .publisher-row:hover {
+            background-color: #f8f9fa;
+        }
+
+        .publisher-row .expand-icon {
+            display: inline-block;
+            transition: transform 0.3s;
+            font-size: 1rem;
+            color: #3498DB;
+        }
+
+        .publisher-row.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        .publisher-songs-row {
+            background: #f8f9fa;
+        }
+
+        .publisher-songs-row td {
+            padding: 1rem !important;
+        }
+
+        .nested-songs-table {
+            width: 100%;
+            margin: 0;
+            background: white;
+            border-radius: 4px;
+        }
+
+        .nested-songs-table thead {
+            background: #ecf0f1;
+        }
+
+        .nested-songs-table th {
+            padding: 0.75rem;
+            text-align: left;
+            font-weight: 600;
+            color: #2c3e50;
+            border-bottom: 2px solid #bdc3c7;
+        }
+
+        .nested-songs-table td {
+            padding: 0.75rem;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .nested-songs-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .nested-songs-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .publisher-note {
+            margin-top: 1rem;
+            padding: 0.75rem;
+            background: #FFF3CD;
+            border-left: 3px solid #FFC107;
+            border-radius: 4px;
+            color: #856404;
+            font-size: 0.9rem;
+            font-style: italic;
+        }
+
         /* Global Stats */
         .global-container {
             background: white;
@@ -522,6 +598,7 @@
         <div class="nav-links">
             <a href="#section-a" class="nav-link">Praise Leaders</a>
             <a href="#section-b" class="nav-link">Global Stats</a>
+            <a href="#publisher" class="nav-link">Publisher</a>
             <a href="#all-songs" class="nav-link">All Songs</a>
             <div class="dropdown">
                 <button class="dropdown-btn">Leaders ▾</button>
@@ -1608,7 +1685,7 @@
             <div class="stat-section">
                 <h4>2025 New Songs (since 2022)</h4>
                 <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
-                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li>人間行傳</li><li>以愛還愛</li><li>信心眼淚</li><li>全地至高是我主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li>同享主餐</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>基督君尊配受眾俯拜</li><li>奔跑不放棄</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li>平安</li><li>恩主美善愛眷</li><li>愛的恩賜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li>我更需要祢</li><li>我願祢來</li><li>新的異象，新的方向</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li>神同在</li><li>祢配得</li><li>立志擺上</li><li>至愛的迴響</li><li>至死忠心</li><li>至聖的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li>這是愛</li><li>靠向我主</li></ul>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li>人間行傳</li><li>以愛還愛</li><li>信心眼淚</li><li>全地至高是我主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li>同享主餐</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>基督君尊配受眾俯拜</li><li>奔跑不放棄</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li>平安</li><li>恩主美善愛眷</li><li>愛的恩賜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li>我更需要祢</li><li>我願祢來</li><li>新的異象 新的方向</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li>神同在</li><li>祢配得</li><li>立志擺上</li><li>至愛的迴響</li><li>至死忠心</li><li>至聖的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li>這是愛</li><li>靠向我主</li></ul>
             </div>
 
             <div class="stat-section">
@@ -2001,18 +2078,4583 @@
             </h4>
             <div class="collapsible-content">
                 <p class="section-note">Complete alphabetical list of all songs used in 2025</p>
-                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li>Great Is Thy Faithfulness 主恩何信實</li><li>How Great Is Our God 神祢名尊貴</li><li>How Great Thou Art 祢真偉大</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Messiah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Ocean Will Part</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Raise A Hallelujah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> The Lord Bless You and Keep You (John Rutter)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</li><li>一生的恩惠</li><li>三一頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 世界之光</li><li>世界最美的聲音</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li>主基督配得</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主愛大能 (Power Of Your Love)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主求祢更新我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li>主賜福您</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</li><li>久望主臨 Come, Thou Long-Expected Jesus</li><li>人間行傳</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</li><li>以愛還愛</li><li>但主愛更深廣</li><li>何等恩典</li><li>何等美麗名字</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</li><li>信實的確據</li><li>信心眼淚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 信眾齊到主前 O Come All Ye Faithful</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 光輝的主 Here I Am to Worship</li><li>全因基督</li><li>全地至高是我主</li><li>全是祢恩典</li><li>再次將我更新</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li>同享主餐</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 同證主美意</li><li>同餅同杯</li><li>君王就在這裡</li><li>呼喚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 和平之君</li><li>唯一</li><li>唯獨在基督裡</li><li>唯獨祢愛我一生</li><li>喜愛祢聲音</li><li>回到世界中心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li>因主的名</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>因祢堅持</li><li>在我主光亮中</li><li>坐在寶座上聖潔羔羊</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 垂絲柳樹下</li><li>基督君尊配受眾俯拜</li><li>基督的使者</li><li>堅定我</li><li>堅立</li><li>大能的恩典</li><li>天地讚美</li><li>天父⋯</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</li><li>奔跑不放棄</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</li><li>安靜 Still</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 帶我進入祢的同在</li><li>平安</li><li>平安的約</li><li>得勝</li><li>得著自由</li><li>徹底</li><li>心生敬畏</li><li>恩主美善愛眷</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 恩典之路</li><li>愛的恩賜</li><li>愛，再不是傳說</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 慈愛恩主，請祢來臨 (O Come, O Come, Emmanuel)</li><li>憂愁痛悔的靈</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li>我們呼求</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們歡迎君王降臨</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</li><li>我向祢禱告</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</li><li>我心安穩</li><li>我心敞開</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</li><li>我更需要祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我獻上生命給祢</li><li>我的千古保障</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</li><li>我的心，祢要稱頌耶和華</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的救贖者活著</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我要一心稱謝祢</li><li>我要一生一世住在祢聖殿</li><li>我願祢來</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 打開天窗 Open the Gates</li><li>投靠</li><li>捉緊我</li><li>救恩</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 敬拜讚美神獨一的主 O Praise The Name (Anástasis)</li><li>新的異象，新的方向</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</li><li>晚禱</li><li>更深愛祢</li><li>最美好…盡力愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</li><li>有神同往</li><li>期待耶穌</li><li>榮美屬祢</li><li>榮耀大君王</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</li><li>榮耀的呼召</li><li>榮耀頌 Doxology</li><li>榮雨降下</li><li>歷煉荊途</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天 (Day By Day)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</li><li>每當我們同心敬拜</li><li>永恆的祢</li><li>永約之誓</li><li>求主給這世代看見異象</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 求作主僕（Make Me a Servant）</li><li>決心跟祢</li><li>渴慕祢</li><li>渴慕聖潔</li><li>滿有能力</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</li><li>無論那刻</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li>猶大書榮耀頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li>獻給祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li>生命活水充滿我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 甦醒 Resurrecting</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>直到我遇到祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li>真相</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li>祝福歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 祝福歌（恭喜恭喜）</li><li>神同在</li><li>神坐著為王</li><li>神是我這生供應者</li><li>神的帳幕在人間</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</li><li>神祢信實奇妙</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</li><li>祢坐著為王</li><li>祢大能勝過我的限制</li><li>祢成就救恩</li><li>祢是我牧人</li><li>祢是我盼望</li><li>祢是我神</li><li>祢的愛</li><li>祢讓我生命改變</li><li>祢配得</li><li>立志擺上</li><li>繼續相信</li><li>耶和華以勒</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</li><li>耶穌我感謝祢</li><li>耶穌配得至聖尊榮</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖哉千千載（Holy Forever）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈之歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈請祢來充滿我心</li><li>至愛的迴響</li><li>至死忠心</li><li>至聖的主</li><li>至高尊貴的祢</li><li>與神同行（青年新歌）</li><li>萬世君王</li><li>萬代君主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬物頌讚主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 詩篇 Psalm 149</li><li>認定祢</li><li>諸天頌讚</li><li>讓我</li><li>讓我得見祢的榮面</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓目光單轉向祢(Turn your eyes upon Jesus)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚美主</li><li>讚美永不息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</li><li>讚頌祢的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</li><li>這就是我的神</li><li>這愛極深厚</li><li>這是愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 連於祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</li><li>逾越</li><li>遮蓋我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治這都市 (Heal Our Nation)</li><li>重燃薪火</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</li><li>靠向我主</li><li>靠著祢寶血</li><li>響應</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 願你平安</li><li>願祢國度彰顯</li><li>願祢平安</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 𧶽我自由</li></ul>
+                <ul class="song-list"><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</li><li>Great Is Thy Faithfulness 主恩何信實</li><li>How Great Is Our God 神祢名尊貴</li><li>How Great Thou Art 祢真偉大</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Messiah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Ocean Will Part</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Raise A Hallelujah</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> The Lord Bless You and Keep You (John Rutter)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</li><li>一生的恩惠</li><li>三一頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 世界之光</li><li>世界最美的聲音</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</li><li>主基督配得</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主愛大能 (Power Of Your Love)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主求祢更新我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</li><li>主賜福您</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</li><li>久望主臨 Come, Thou Long-Expected Jesus</li><li>人間行傳</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</li><li>以愛還愛</li><li>但主愛更深廣</li><li>何等恩典</li><li>何等美麗名字</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</li><li>信實的確據</li><li>信心眼淚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 信眾齊到主前 O Come All Ye Faithful</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 光輝的主 Here I Am to Worship</li><li>全因基督</li><li>全地至高是我主</li><li>全是祢恩典</li><li>再次將我更新</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</li><li>十架的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</li><li>同享主餐</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 同證主美意</li><li>同餅同杯</li><li>君王就在這裡</li><li>呼喚</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 和平之君</li><li>唯一</li><li>唯獨在基督裡</li><li>唯獨祢愛我一生</li><li>喜愛祢聲音</li><li>回到世界中心</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</li><li>因主的名</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</li><li>因祢堅持</li><li>在我主光亮中</li><li>坐在寶座上聖潔羔羊</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 垂絲柳樹下</li><li>基督君尊配受眾俯拜</li><li>基督的使者</li><li>堅定我</li><li>堅立</li><li>大能的恩典</li><li>天地讚美</li><li>天父⋯</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</li><li>奔跑不放棄</li><li>好信息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</li><li>安靜 Still</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</li><li>寶貴十架</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 帶我進入祢的同在</li><li>平安</li><li>平安的約</li><li>得勝</li><li>得著自由</li><li>徹底</li><li>心生敬畏</li><li>恩主美善愛眷</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 恩典之路</li><li>愛的恩賜</li><li>愛，再不是傳說</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 慈愛恩主，請祢來臨 (O Come, O Come, Emmanuel)</li><li>憂愁痛悔的靈</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</li><li>我們呼求</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們歡迎君王降臨</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</li><li>我向祢禱告</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</li><li>我心安穩</li><li>我心敞開</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</li><li>我更需要祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我獻上生命給祢</li><li>我的千古保障</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</li><li>我的心，祢要稱頌耶和華</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的救贖者活著</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我要一心稱謝祢</li><li>我要一生一世住在祢聖殿</li><li>我願祢來</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 打開天窗 Open the Gates</li><li>投靠</li><li>捉緊我</li><li>救恩</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 敬拜讚美神獨一的主 O Praise The Name (Anástasis)</li><li>新的異象 新的方向</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</li><li>晚禱</li><li>更深愛祢</li><li>最美好…盡力愛祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</li><li>有神同往</li><li>期待耶穌</li><li>榮美屬祢</li><li>榮耀大君王</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</li><li>榮耀的呼召</li><li>榮耀頌 Doxology</li><li>榮雨降下</li><li>歷煉荊途</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天 (Day By Day)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</li><li>每當我們同心敬拜</li><li>永恆的祢</li><li>永約之誓</li><li>求主給這世代看見異象</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 求作主僕（Make Me a Servant）</li><li>決心跟祢</li><li>渴慕祢</li><li>渴慕聖潔</li><li>滿有能力</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</li><li>無論那刻</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</li><li>猶大書榮耀頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</li><li>獻給我天上的主</li><li>獻給祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</li><li>生命活水充滿我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 甦醒 Resurrecting</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</li><li>直到我遇到祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</li><li>真相</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</li><li>祝福歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 祝福歌（恭喜恭喜）</li><li>神同在</li><li>神坐著為王</li><li>神是我這生供應者</li><li>神的帳幕在人間</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</li><li>神祢信實奇妙</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</li><li>祢坐著為王</li><li>祢大能勝過我的限制</li><li>祢成就救恩</li><li>祢是我牧人</li><li>祢是我盼望</li><li>祢是我神</li><li>祢的愛</li><li>祢讓我生命改變</li><li>祢配得</li><li>立志擺上</li><li>繼續相信</li><li>耶和華以勒</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</li><li>耶穌我感謝祢</li><li>耶穌配得至聖尊榮</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖哉千千載（Holy Forever）</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈之歌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈請祢來充滿我心</li><li>至愛的迴響</li><li>至死忠心</li><li>至聖的主</li><li>至高尊貴的祢</li><li>與神同行（青年新歌）</li><li>萬世君王</li><li>萬代君主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬物頌讚主</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 詩篇 Psalm 149</li><li>認定祢</li><li>諸天頌讚</li><li>讓我</li><li>讓我得見祢的榮面</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓目光單轉向祢(Turn your eyes upon Jesus)</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚美主</li><li>讚美永不息</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</li><li>讚頌祢的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</li><li>這就是我的神</li><li>這愛極深厚</li><li>這是愛</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 連於祢</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</li><li>逾越</li><li>遮蓋我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治我</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治這都市 (Heal Our Nation)</li><li>重燃薪火</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</li><li>靠向我主</li><li>靠著祢寶血</li><li>響應</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 願你平安</li><li>願祢國度彰顯</li><li>願祢平安</li><li><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 𧶽我自由</li></ul>
             </div>
         </div>
     </div>
     
             </div>
         </section>
+
+        
+    <section id="publisher">
+        <div class="section-header">
+            <h2>Section C: Publisher</h2>
+            <p class="section-description">Analysis of songs by copyright/publisher ownership</p>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences (Excluding Peace Songs)</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Praise 1 & 2 (excluding Peace songs) in 2025. Click publisher row to view songs.</p>
+                
+    <table class="stats-table publisher-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Publisher</th>
+                <th>Total Occurrences</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>1</td>
+            <td>Stream of Praise Music</td>
+            <td>52</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>榮耀大君王</td><td>6</td></tr>
+<tr><td>十架的愛</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</td><td>4</td></tr>
+<tr><td>寶貴十架</td><td>3</td></tr>
+<tr><td>我的心，祢要稱頌耶和華</td><td>3</td></tr>
+<tr><td>祢的愛</td><td>2</td></tr>
+<tr><td>奔跑不放棄</td><td>2</td></tr>
+<tr><td>君王就在這裡</td><td>2</td></tr>
+<tr><td>生命活水充滿我</td><td>2</td></tr>
+<tr><td>讓我得見祢的榮面</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 21 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>2</td>
+            <td>香港基督徒音樂事工協會</td>
+            <td>36</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>6</td></tr>
+<tr><td>靠向我主</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</td><td>3</td></tr>
+<tr><td>讚頌祢的愛</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</td><td>2</td></tr>
+<tr><td>祢成就救恩</td><td>2</td></tr>
+<tr><td>神是我這生供應者</td><td>2</td></tr>
+<tr><td>耶和華以勒</td><td>2</td></tr>
+<tr><td>響應</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 9 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>3</td>
+            <td>麥子霖</td>
+            <td>31</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>祢大能勝過我的限制</td><td>5</td></tr>
+<tr><td>這是愛</td><td>5</td></tr>
+<tr><td>榮美屬祢</td><td>4</td></tr>
+<tr><td>諸天頌讚</td><td>4</td></tr>
+<tr><td>祢是我盼望</td><td>3</td></tr>
+<tr><td>全是祢恩典</td><td>2</td></tr>
+<tr><td>願祢國度彰顯</td><td>2</td></tr>
+<tr><td>我心安穩</td><td>1</td></tr>
+<tr><td>喜愛祢聲音</td><td>1</td></tr>
+<tr><td>我心敞開</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 3 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>4</td>
+            <td>鹹蛋音樂事工</td>
+            <td>27</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>因祢堅持</td><td>7</td></tr>
+<tr><td>大能的恩典</td><td>5</td></tr>
+<tr><td>祢配得</td><td>4</td></tr>
+<tr><td>徹底</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</td><td>1</td></tr>
+<tr><td>祢坐著為王</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>5</td>
+            <td>AFC Vancouver</td>
+            <td>22</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>歷煉荊途</td><td>7</td></tr>
+<tr><td>得勝</td><td>4</td></tr>
+<tr><td>人間行傳</td><td>4</td></tr>
+<tr><td>重燃薪火</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</td><td>2</td></tr>
+<tr><td>基督的使者</td><td>2</td></tr>
+<tr><td>回到世界中心</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>6</td>
+            <td>余子麟</td>
+            <td>21</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>我更需要祢</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</td><td>3</td></tr>
+<tr><td>但主愛更深廣</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</td><td>2</td></tr>
+<tr><td>至聖的主</td><td>2</td></tr>
+<tr><td>晚禱</td><td>2</td></tr>
+<tr><td>呼喚</td><td>1</td></tr>
+<tr><td>萬世君王</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</td><td>1</td></tr>
+<tr><td>救恩</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 2 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>7</td>
+            <td>One Circle Ltd</td>
+            <td>19</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>世界最美的聲音</td><td>6</td></tr>
+<tr><td>獻給我天上的主</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</td><td>2</td></tr>
+<tr><td>平安</td><td>2</td></tr>
+<tr><td>心生敬畏</td><td>2</td></tr>
+<tr><td>祢是我神</td><td>1</td></tr>
+<tr><td>祢是我牧人</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</td><td>1</td></tr>
+<tr><td>最美好…盡力愛祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>8</td>
+            <td>Milk & Honey Worship</td>
+            <td>19</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>得著自由</td><td>7</td></tr>
+<tr><td>求主給這世代看見異象</td><td>4</td></tr>
+<tr><td>憂愁痛悔的靈</td><td>3</td></tr>
+<tr><td>榮雨降下</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</td><td>1</td></tr>
+<tr><td>永約之誓</td><td>1</td></tr>
+<tr><td>遮蓋我</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>9</td>
+            <td>Worship Nations</td>
+            <td>18</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>至死忠心</td><td>7</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</td><td>3</td></tr>
+<tr><td>決心跟祢</td><td>2</td></tr>
+<tr><td>神的帳幕在人間</td><td>2</td></tr>
+<tr><td>渴慕聖潔</td><td>2</td></tr>
+<tr><td>我要一生一世住在祢聖殿</td><td>1</td></tr>
+<tr><td>投靠</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>10</td>
+            <td>角聲使團</td>
+            <td>17</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>至高尊貴的祢</td><td>4</td></tr>
+<tr><td>全因基督</td><td>4</td></tr>
+<tr><td>信實的確據</td><td>3</td></tr>
+<tr><td>全地至高是我主</td><td>3</td></tr>
+<tr><td>繼續相信</td><td>2</td></tr>
+<tr><td>萬代君主</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>11</td>
+            <td>Grace Melodia</td>
+            <td>15</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>渴慕祢</td><td>5</td></tr>
+<tr><td>至愛的迴響</td><td>3</td></tr>
+<tr><td>直到我遇到祢</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</td><td>2</td></tr>
+<tr><td>真相</td><td>1</td></tr>
+<tr><td>捉緊我</td><td>1</td></tr>
+<tr><td>唯獨祢愛我一生</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>12</td>
+            <td>原始和聲 Raw Harmony</td>
+            <td>14</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>好信息</td><td>8</td></tr>
+<tr><td>一生的恩惠</td><td>4</td></tr>
+<tr><td>逾越</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>13</td>
+            <td>Esther Chow</td>
+            <td>13</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>神祢信實奇妙</td><td>4</td></tr>
+<tr><td>神同在</td><td>3</td></tr>
+<tr><td>我願祢來</td><td>3</td></tr>
+<tr><td>我的千古保障</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>14</td>
+            <td>玻璃海樂團</td>
+            <td>12</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>平安的約</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</td><td>2</td></tr>
+<tr><td>耶穌我感謝祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>15</td>
+            <td>Flow Church</td>
+            <td>12</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>同餅同杯</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>16</td>
+            <td>Gsus Music Ministry Ltd</td>
+            <td>10</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>7</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>17</td>
+            <td>RedSea Music</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</td><td>1</td></tr>
+<tr><td>更深愛祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>18</td>
+            <td>cantonhymn</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</td><td>3</td></tr>
+<tr><td>主基督配得</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</td><td>1</td></tr>
+<tr><td>How Great Is Our God 神祢名尊貴</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>19</td>
+            <td>Kyrios Culture Association</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>每當我們同心敬拜</td><td>4</td></tr>
+<tr><td>期待耶穌</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>20</td>
+            <td>小羊詩歌 / Raw Harmony / Cantonhymn</td>
+            <td>6</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>再次將我更新</td><td>6</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences in Praise 1</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Praise 1 in 2025. Click publisher row to view songs.</p>
+                
+    <table class="stats-table publisher-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Publisher</th>
+                <th>Total Occurrences</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>1</td>
+            <td>Stream of Praise Music</td>
+            <td>29</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>榮耀大君王</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</td><td>4</td></tr>
+<tr><td>君王就在這裡</td><td>2</td></tr>
+<tr><td>十架的愛</td><td>2</td></tr>
+<tr><td>生命活水充滿我</td><td>2</td></tr>
+<tr><td>讓我得見祢的榮面</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</td><td>1</td></tr>
+<tr><td>坐在寶座上聖潔羔羊</td><td>1</td></tr>
+<tr><td>我的心，祢要稱頌耶和華</td><td>1</td></tr>
+<tr><td>祢的愛</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 9 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>2</td>
+            <td>香港基督徒音樂事工協會</td>
+            <td>25</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>5</td></tr>
+<tr><td>靠向我主</td><td>4</td></tr>
+<tr><td>讚頌祢的愛</td><td>2</td></tr>
+<tr><td>祢成就救恩</td><td>2</td></tr>
+<tr><td>神是我這生供應者</td><td>2</td></tr>
+<tr><td>響應</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</td><td>1</td></tr>
+<tr><td>耶和華以勒</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 3 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>3</td>
+            <td>角聲使團</td>
+            <td>14</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>全因基督</td><td>4</td></tr>
+<tr><td>信實的確據</td><td>3</td></tr>
+<tr><td>至高尊貴的祢</td><td>3</td></tr>
+<tr><td>全地至高是我主</td><td>3</td></tr>
+<tr><td>萬代君主</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>4</td>
+            <td>Grace Melodia</td>
+            <td>13</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>渴慕祢</td><td>5</td></tr>
+<tr><td>至愛的迴響</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</td><td>2</td></tr>
+<tr><td>真相</td><td>1</td></tr>
+<tr><td>唯獨祢愛我一生</td><td>1</td></tr>
+<tr><td>直到我遇到祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>5</td>
+            <td>余子麟</td>
+            <td>13</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</td><td>2</td></tr>
+<tr><td>至聖的主</td><td>2</td></tr>
+<tr><td>晚禱</td><td>2</td></tr>
+<tr><td>但主愛更深廣</td><td>2</td></tr>
+<tr><td>我更需要祢</td><td>1</td></tr>
+<tr><td>萬世君王</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</td><td>1</td></tr>
+<tr><td>救恩</td><td>1</td></tr>
+<tr><td>何等美麗名字</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>6</td>
+            <td>麥子霖</td>
+            <td>11</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>榮美屬祢</td><td>3</td></tr>
+<tr><td>諸天頌讚</td><td>3</td></tr>
+<tr><td>我心安穩</td><td>1</td></tr>
+<tr><td>喜愛祢聲音</td><td>1</td></tr>
+<tr><td>願祢國度彰顯</td><td>1</td></tr>
+<tr><td>我心敞開</td><td>1</td></tr>
+<tr><td>唯一</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>7</td>
+            <td>鹹蛋音樂事工</td>
+            <td>11</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>大能的恩典</td><td>5</td></tr>
+<tr><td>祢配得</td><td>4</td></tr>
+<tr><td>祢坐著為王</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>8</td>
+            <td>One Circle Ltd</td>
+            <td>10</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>獻給我天上的主</td><td>2</td></tr>
+<tr><td>世界最美的聲音</td><td>2</td></tr>
+<tr><td>祢是我神</td><td>1</td></tr>
+<tr><td>祢是我牧人</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</td><td>1</td></tr>
+<tr><td>平安</td><td>1</td></tr>
+<tr><td>心生敬畏</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>9</td>
+            <td>Esther Chow</td>
+            <td>8</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>神祢信實奇妙</td><td>4</td></tr>
+<tr><td>我願祢來</td><td>2</td></tr>
+<tr><td>神同在</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>10</td>
+            <td>Worship Nations</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>決心跟祢</td><td>2</td></tr>
+<tr><td>神的帳幕在人間</td><td>2</td></tr>
+<tr><td>至死忠心</td><td>1</td></tr>
+<tr><td>渴慕聖潔</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>11</td>
+            <td>Milk & Honey Worship</td>
+            <td>6</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>得著自由</td><td>3</td></tr>
+<tr><td>憂愁痛悔的靈</td><td>2</td></tr>
+<tr><td>永約之誓</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>12</td>
+            <td>原始和聲 Raw Harmony</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>好信息</td><td>4</td></tr>
+<tr><td>一生的恩惠</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>13</td>
+            <td>玻璃海樂團</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</td><td>1</td></tr>
+<tr><td>耶穌我感謝祢</td><td>1</td></tr>
+<tr><td>平安的約</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>14</td>
+            <td>亞洲歸主協會香港分會</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>在我主光亮中</td><td>3</td></tr>
+<tr><td>耶穌配得至聖尊榮</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>15</td>
+            <td>⾓聲佈道團</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>讚美永不息</td><td>4</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>16</td>
+            <td>Gsus Music Ministry Ltd</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>17</td>
+            <td>cantonhymn</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</td><td>2</td></tr>
+<tr><td>主基督配得</td><td>1</td></tr>
+<tr><td>How Great Is Our God 神祢名尊貴</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>18</td>
+            <td>撒種音樂事工</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>以愛還愛</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>19</td>
+            <td>約書亞樂團</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>20</td>
+            <td>Kyrios Culture Association</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>每當我們同心敬拜</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences in Praise 2</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Praise 2 in 2025. Click publisher row to view songs.</p>
+                
+    <table class="stats-table publisher-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Publisher</th>
+                <th>Total Occurrences</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>1</td>
+            <td>Stream of Praise Music</td>
+            <td>23</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>十架的愛</td><td>3</td></tr>
+<tr><td>榮耀大君王</td><td>2</td></tr>
+<tr><td>寶貴十架</td><td>2</td></tr>
+<tr><td>奔跑不放棄</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</td><td>2</td></tr>
+<tr><td>我的心，祢要稱頌耶和華</td><td>2</td></tr>
+<tr><td>新的異象 新的方向</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        <p class="publisher-note">Showing top 10 songs only. 5 additional occurrences from other songs not shown.</p>
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>2</td>
+            <td>AFC Vancouver</td>
+            <td>22</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>歷煉荊途</td><td>7</td></tr>
+<tr><td>得勝</td><td>4</td></tr>
+<tr><td>人間行傳</td><td>4</td></tr>
+<tr><td>重燃薪火</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</td><td>2</td></tr>
+<tr><td>基督的使者</td><td>2</td></tr>
+<tr><td>回到世界中心</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>3</td>
+            <td>麥子霖</td>
+            <td>20</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>祢大能勝過我的限制</td><td>5</td></tr>
+<tr><td>這是愛</td><td>5</td></tr>
+<tr><td>祢是我盼望</td><td>3</td></tr>
+<tr><td>全是祢恩典</td><td>2</td></tr>
+<tr><td>願祢國度彰顯</td><td>1</td></tr>
+<tr><td>諸天頌讚</td><td>1</td></tr>
+<tr><td>堅立</td><td>1</td></tr>
+<tr><td>堅定我</td><td>1</td></tr>
+<tr><td>榮美屬祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>4</td>
+            <td>鹹蛋音樂事工</td>
+            <td>16</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>因祢堅持</td><td>7</td></tr>
+<tr><td>徹底</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>5</td>
+            <td>Milk & Honey Worship</td>
+            <td>13</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>求主給這世代看見異象</td><td>4</td></tr>
+<tr><td>得著自由</td><td>4</td></tr>
+<tr><td>榮雨降下</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</td><td>1</td></tr>
+<tr><td>遮蓋我</td><td>1</td></tr>
+<tr><td>憂愁痛悔的靈</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>6</td>
+            <td>香港基督徒音樂事工協會</td>
+            <td>11</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</td><td>1</td></tr>
+<tr><td>耶和華以勒</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</td><td>1</td></tr>
+<tr><td>祢讓我生命改變</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>7</td>
+            <td>Worship Nations</td>
+            <td>11</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>至死忠心</td><td>6</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</td><td>2</td></tr>
+<tr><td>我要一生一世住在祢聖殿</td><td>1</td></tr>
+<tr><td>投靠</td><td>1</td></tr>
+<tr><td>渴慕聖潔</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>8</td>
+            <td>Flow Church</td>
+            <td>10</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>同餅同杯</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>9</td>
+            <td>One Circle Ltd</td>
+            <td>9</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>世界最美的聲音</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</td><td>1</td></tr>
+<tr><td>心生敬畏</td><td>1</td></tr>
+<tr><td>最美好…盡力愛祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</td><td>1</td></tr>
+<tr><td>平安</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>10</td>
+            <td>原始和聲 Raw Harmony</td>
+            <td>9</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>好信息</td><td>4</td></tr>
+<tr><td>一生的恩惠</td><td>3</td></tr>
+<tr><td>逾越</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>11</td>
+            <td>余子麟</td>
+            <td>8</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</td><td>3</td></tr>
+<tr><td>我更需要祢</td><td>2</td></tr>
+<tr><td>呼喚</td><td>1</td></tr>
+<tr><td>但主愛更深廣</td><td>1</td></tr>
+<tr><td>這就是我的神</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>12</td>
+            <td>玻璃海樂團</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>平安的約</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>13</td>
+            <td>Gsus Music Ministry Ltd</td>
+            <td>6</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>14</td>
+            <td>Esther Chow</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>神同在</td><td>2</td></tr>
+<tr><td>我的千古保障</td><td>2</td></tr>
+<tr><td>我願祢來</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>15</td>
+            <td>RedSea Music</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</td><td>1</td></tr>
+<tr><td>更深愛祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>16</td>
+            <td>EcH2O Music</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>信心眼淚</td><td>4</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>17</td>
+            <td>曾路得</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</td><td>2</td></tr>
+<tr><td>安靜 Still</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>18</td>
+            <td>Kyrios Culture Association</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>期待耶穌</td><td>3</td></tr>
+<tr><td>每當我們同心敬拜</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>19</td>
+            <td>小羊詩歌 / Raw Harmony / Cantonhymn</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>再次將我更新</td><td>4</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>20</td>
+            <td>世紀頌讚</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>同享主餐</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Top 20 Publishers by Song Occurrences in Peace Songs</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Top 20 publishers with highest song occurrences in Peace in 2025. Click publisher row to view songs.</p>
+                
+    <table class="stats-table publisher-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Publisher</th>
+                <th>Total Occurrences</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>1</td>
+            <td>余子麟</td>
+            <td>60</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>三一頌</td><td>29</td></tr>
+<tr><td>猶大書榮耀頌</td><td>19</td></tr>
+<tr><td>祝福歌</td><td>8</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 西面頌</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 祝福歌（恭喜恭喜）</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>2</td>
+            <td>香港基督徒音樂事工協會</td>
+            <td>24</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>主賜福您</td><td>15</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Emmanuel</td><td>9</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>3</td>
+            <td>Grace Melodia</td>
+            <td>14</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 盡意傾心</td><td>14</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>4</td>
+            <td>基恩敬拜音樂事工</td>
+            <td>2</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>願祢平安</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 願你平安</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>5</td>
+            <td>麥子霖</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>榮美屬祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>Songs Not Matched to Any Publisher</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Songs that could not be matched to any publisher in the metadata</p>
+                
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Song</th>
+                <th>Occurrences</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 因祂活著</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 到那日</td><td>2</td></tr>
+<tr><td>天父⋯</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈之歌</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治我</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬物頌讚主</td><td>1</td></tr>
+<tr><td>Great Is Thy Faithfulness 主恩何信實</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 連於祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖哉千千載（Holy Forever）</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 聖靈請祢來充滿我心</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 𧶽我自由</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 求作主僕（Make Me a Servant）</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於真神 To God Be The Glory</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真神之愛(生命聖詩41)</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Loves Me</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 同證主美意</td><td>1</td></tr>
+<tr><td>與神同行（青年新歌）</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 垂絲柳樹下</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓目光單轉向祢(Turn your eyes upon Jesus)</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Raise A Hallelujah</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主愛大能 (Power Of Your Love)</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 信眾齊到主前 O Come All Ye Faithful</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Christmas2025（信眾齊到主前, 祢是彌賽亞, 祢配得, 君尊義僕, 好信息, 神同在, 榮美屬祢）</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Jesus Messiah</td><td>1</td></tr>
+
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+
+        <div class="stat-section collapsible">
+            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+                <span>All Publishers (Complete List)</span>
+                <span class="expand-icon">▼</span>
+            </h4>
+            <div class="collapsible-content">
+                <p class="section-note">Complete list of all publishers from metadata, sorted by 2025 occurrences. Click publisher row to view songs.</p>
+                
+    <table class="stats-table publisher-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Publisher</th>
+                <th>Total Occurrences</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>1</td>
+            <td>Stream of Praise Music</td>
+            <td>52</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>榮耀大君王</td><td>6</td></tr>
+<tr><td>十架的愛</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們的神</td><td>4</td></tr>
+<tr><td>寶貴十架</td><td>3</td></tr>
+<tr><td>我的心，祢要稱頌耶和華</td><td>3</td></tr>
+<tr><td>祢的愛</td><td>2</td></tr>
+<tr><td>奔跑不放棄</td><td>2</td></tr>
+<tr><td>君王就在這裡</td><td>2</td></tr>
+<tr><td>生命活水充滿我</td><td>2</td></tr>
+<tr><td>讓我得見祢的榮面</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們愛（讓世界不一樣）</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生愛祢</td><td>2</td></tr>
+<tr><td>新的異象 新的方向</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 榮耀歸於至高真神</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天我需要祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 親近祢</td><td>1</td></tr>
+<tr><td>坐在寶座上聖潔羔羊</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我們歡迎君王降臨</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 打開天窗 Open the Gates</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的救贖者活著</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 世界之光</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 恩典之路</td><td>1</td></tr>
+<tr><td>認定祢</td><td>1</td></tr>
+<tr><td>滿有能力</td><td>1</td></tr>
+<tr><td>何等恩典</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我要一心稱謝祢</td><td>1</td></tr>
+<tr><td>我們呼求</td><td>1</td></tr>
+<tr><td>榮耀的呼召</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 帶我進入祢的同在</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>2</td>
+            <td>香港基督徒音樂事工協會</td>
+            <td>36</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 獻上頌讚 (Shout To The Lord)</td><td>6</td></tr>
+<tr><td>靠向我主</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主啊！我願意</td><td>3</td></tr>
+<tr><td>讚頌祢的愛</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安穩在主裡</td><td>2</td></tr>
+<tr><td>祢成就救恩</td><td>2</td></tr>
+<tr><td>神是我這生供應者</td><td>2</td></tr>
+<tr><td>耶和華以勒</td><td>2</td></tr>
+<tr><td>響應</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然相信祢</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主祢知道</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我心敬拜</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 一生當稱頌</td><td>1</td></tr>
+<tr><td>祢讓我生命改變</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主禱文(在天上的父）</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 最美好的仗</td><td>1</td></tr>
+<tr><td>天地讚美</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚美主</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 和平之君</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>3</td>
+            <td>麥子霖</td>
+            <td>31</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>祢大能勝過我的限制</td><td>5</td></tr>
+<tr><td>這是愛</td><td>5</td></tr>
+<tr><td>榮美屬祢</td><td>4</td></tr>
+<tr><td>諸天頌讚</td><td>4</td></tr>
+<tr><td>祢是我盼望</td><td>3</td></tr>
+<tr><td>全是祢恩典</td><td>2</td></tr>
+<tr><td>願祢國度彰顯</td><td>2</td></tr>
+<tr><td>我心安穩</td><td>1</td></tr>
+<tr><td>喜愛祢聲音</td><td>1</td></tr>
+<tr><td>我心敞開</td><td>1</td></tr>
+<tr><td>唯一</td><td>1</td></tr>
+<tr><td>堅立</td><td>1</td></tr>
+<tr><td>堅定我</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>4</td>
+            <td>鹹蛋音樂事工</td>
+            <td>27</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>因祢堅持</td><td>7</td></tr>
+<tr><td>大能的恩典</td><td>5</td></tr>
+<tr><td>祢配得</td><td>4</td></tr>
+<tr><td>徹底</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 憑信跨過</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 客西馬尼園</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我屬祢</td><td>1</td></tr>
+<tr><td>祢坐著為王</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的名字在祢心上</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>5</td>
+            <td>AFC Vancouver</td>
+            <td>22</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>歷煉荊途</td><td>7</td></tr>
+<tr><td>得勝</td><td>4</td></tr>
+<tr><td>人間行傳</td><td>4</td></tr>
+<tr><td>重燃薪火</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 牧羊人沒有忘記</td><td>2</td></tr>
+<tr><td>基督的使者</td><td>2</td></tr>
+<tr><td>回到世界中心</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>6</td>
+            <td>余子麟</td>
+            <td>21</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>我更需要祢</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讓生命寬宏</td><td>3</td></tr>
+<tr><td>但主愛更深廣</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 灰中敬拜</td><td>2</td></tr>
+<tr><td>至聖的主</td><td>2</td></tr>
+<tr><td>晚禱</td><td>2</td></tr>
+<tr><td>呼喚</td><td>1</td></tr>
+<tr><td>萬世君王</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是我的主</td><td>1</td></tr>
+<tr><td>救恩</td><td>1</td></tr>
+<tr><td>這就是我的神</td><td>1</td></tr>
+<tr><td>何等美麗名字</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>7</td>
+            <td>Milk & Honey Worship</td>
+            <td>19</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>得著自由</td><td>7</td></tr>
+<tr><td>求主給這世代看見異象</td><td>4</td></tr>
+<tr><td>憂愁痛悔的靈</td><td>3</td></tr>
+<tr><td>榮雨降下</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是為祢預備</td><td>1</td></tr>
+<tr><td>永約之誓</td><td>1</td></tr>
+<tr><td>遮蓋我</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>8</td>
+            <td>One Circle Ltd</td>
+            <td>19</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>世界最美的聲音</td><td>6</td></tr>
+<tr><td>獻給我天上的主</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 萬有都歸祢</td><td>2</td></tr>
+<tr><td>平安</td><td>2</td></tr>
+<tr><td>心生敬畏</td><td>2</td></tr>
+<tr><td>祢是我神</td><td>1</td></tr>
+<tr><td>祢是我牧人</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 進入這地</td><td>1</td></tr>
+<tr><td>最美好…盡力愛祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 保守我心</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>9</td>
+            <td>Worship Nations</td>
+            <td>18</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>至死忠心</td><td>7</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 回到愛祢的最初</td><td>3</td></tr>
+<tr><td>決心跟祢</td><td>2</td></tr>
+<tr><td>神的帳幕在人間</td><td>2</td></tr>
+<tr><td>渴慕聖潔</td><td>2</td></tr>
+<tr><td>我要一生一世住在祢聖殿</td><td>1</td></tr>
+<tr><td>投靠</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>10</td>
+            <td>角聲使團</td>
+            <td>17</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>至高尊貴的祢</td><td>4</td></tr>
+<tr><td>全因基督</td><td>4</td></tr>
+<tr><td>信實的確據</td><td>3</td></tr>
+<tr><td>全地至高是我主</td><td>3</td></tr>
+<tr><td>繼續相信</td><td>2</td></tr>
+<tr><td>萬代君主</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>11</td>
+            <td>Grace Melodia</td>
+            <td>15</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>渴慕祢</td><td>5</td></tr>
+<tr><td>至愛的迴響</td><td>3</td></tr>
+<tr><td>直到我遇到祢</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 讚頌未停</td><td>2</td></tr>
+<tr><td>真相</td><td>1</td></tr>
+<tr><td>捉緊我</td><td>1</td></tr>
+<tr><td>唯獨祢愛我一生</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>12</td>
+            <td>原始和聲 Raw Harmony</td>
+            <td>14</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>好信息</td><td>8</td></tr>
+<tr><td>一生的恩惠</td><td>4</td></tr>
+<tr><td>逾越</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>13</td>
+            <td>Esther Chow</td>
+            <td>13</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>神祢信實奇妙</td><td>4</td></tr>
+<tr><td>神同在</td><td>3</td></tr>
+<tr><td>我願祢來</td><td>3</td></tr>
+<tr><td>我的千古保障</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神祢恩典夠我用</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>14</td>
+            <td>Flow Church</td>
+            <td>12</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>同餅同杯</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 王的應許</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 透著祢的榮光</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 仍然敬拜</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>15</td>
+            <td>玻璃海樂團</td>
+            <td>12</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>平安的約</td><td>5</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 受造奇妙可畏</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我的日子如何</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 小小的雙手</td><td>2</td></tr>
+<tr><td>耶穌我感謝祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>16</td>
+            <td>Gsus Music Ministry Ltd</td>
+            <td>10</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 超出預計的愛</td><td>7</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 好牧人</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>17</td>
+            <td>Kyrios Culture Association</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>每當我們同心敬拜</td><td>4</td></tr>
+<tr><td>期待耶穌</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>18</td>
+            <td>RedSea Music</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 只見耶穌</td><td>4</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 是祢先愛我</td><td>1</td></tr>
+<tr><td>更深愛祢</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主超過我在面對的紅海</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>19</td>
+            <td>cantonhymn</td>
+            <td>7</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Cornerstone 房角基石</td><td>3</td></tr>
+<tr><td>主基督配得</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 神真正心意 (The Heart of Worship)</td><td>1</td></tr>
+<tr><td>How Great Is Our God 神祢名尊貴</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>20</td>
+            <td>小羊詩歌 / Raw Harmony / Cantonhymn</td>
+            <td>6</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>再次將我更新</td><td>6</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>21</td>
+            <td>曾路得</td>
+            <td>6</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>安靜 Still</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 安靜恩典</td><td>2</td></tr>
+<tr><td>獻給祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>22</td>
+            <td>EcH2O Music</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>信心眼淚</td><td>5</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>23</td>
+            <td>亞洲歸主協會香港分會</td>
+            <td>5</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>在我主光亮中</td><td>3</td></tr>
+<tr><td>耶穌配得至聖尊榮</td><td>1</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我只想去讚美祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>24</td>
+            <td>CantonHymn</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 奇異恩典（除掉困鎖）</td><td>3</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 醫治這都市 (Heal Our Nation)</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>25</td>
+            <td>Son Music</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>我向祢禱告</td><td>3</td></tr>
+<tr><td>靠著祢寶血</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>26</td>
+            <td>⾓聲佈道團</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>讚美永不息</td><td>4</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>27</td>
+            <td>共享詩歌</td>
+            <td>4</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>因主的名</td><td>2</td></tr>
+<tr><td>神坐著為王</td><td>1</td></tr>
+<tr><td>愛，再不是傳說</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>28</td>
+            <td>HeArtz by Sen Lok Christian Church</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>愛的恩賜</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>29</td>
+            <td>Sunset worship</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 儘管我尚未看見</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>30</td>
+            <td>世紀頌讚</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>同享主餐</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>31</td>
+            <td>房角石音樂</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>讓我</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>32</td>
+            <td>撒種音樂事工</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>以愛還愛</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>33</td>
+            <td>樂筆出版社 頌恩旋律</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>永恆的祢</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>34</td>
+            <td>粵語基督教合唱資源庫</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>恩主美善愛眷</td><td>2</td></tr>
+<tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 慈愛恩主，請祢來臨 (O Come, O Come, Emmanuel)</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>35</td>
+            <td>約書亞樂團</td>
+            <td>3</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 耶穌基督 (In Christ Alone)</td><td>3</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>36</td>
+            <td>John Laudon</td>
+            <td>2</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>這愛極深厚</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>37</td>
+            <td>Stream of Praise / Cantonhymn</td>
+            <td>2</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>無論那刻</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>38</td>
+            <td>Thankyou Music</td>
+            <td>2</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 光輝的主 Here I Am to Worship</td><td>1</td></tr>
+<tr><td>唯獨在基督裡</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>39</td>
+            <td>中國基督教播道會恩福堂</td>
+            <td>2</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 開往水深之處</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>40</td>
+            <td>建道神學院新你呈敬拜隊</td>
+            <td>2</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>立志擺上</td><td>2</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>41</td>
+            <td>CHHL</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 詩篇 Psalm 149</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>42</td>
+            <td>Elevation Worship Publishing</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 甦醒 Resurrecting</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>43</td>
+            <td>Hillsong Music Publishing Australia/cantonhymn</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 敬拜讚美神獨一的主 O Praise The Name (Anástasis)</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>44</td>
+            <td>Integrity Music / cantonhymn</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 我獻上生命給祢</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>45</td>
+            <td>Public Domain cantonhymn</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>久望主臨 Come, Thou Long-Expected Jesus</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>46</td>
+            <td>Stuart K. Hine 香港宣道會崇拜訓練組譯</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>How Great Thou Art 祢真偉大</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>47</td>
+            <td>©2006 Hillsong Music Publishing</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> Ocean Will Part</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>48</td>
+            <td>世紀頌讚477</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 真光普照 Shine Jesus Shine</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>49</td>
+            <td>亞洲歸主協會香港分會/CantonHymn</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>基督君尊配受眾俯拜</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>50</td>
+            <td>建道神學院新祢呈敬拜隊</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>有神同往</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>51</td>
+            <td>矽谷生命河靈糧堂, 五旬節聖潔會永光堂</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 主求祢更新我</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>52</td>
+            <td>青年聖歌</td>
+            <td>1</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td><span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> 每一天 (Day By Day)</td><td>1</td></tr>
+
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>53</td>
+            <td>2000 The 40th CCCYWC</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>54</td>
+            <td>Andrew Chow & Alan Yu</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>55</td>
+            <td>Ateliers et Presses de Taize</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>56</td>
+            <td>Hillsong Publishing admin by copycare Asia</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>57</td>
+            <td>Hot Worshipper</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>58</td>
+            <td>Jerry Ho</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>59</td>
+            <td>Lily Liu</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>60</td>
+            <td>MMO Productions</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>61</td>
+            <td>Maria Lee + Michelle Lo</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>62</td>
+            <td>Music 2000</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>63</td>
+            <td>Music 2000 Ltd</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>64</td>
+            <td>Public Domain</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>65</td>
+            <td>Raw Harmony</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>66</td>
+            <td>Thank you Music</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>67</td>
+            <td>Tsz Lam Mak</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>68</td>
+            <td>Westside Baptist Church</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>69</td>
+            <td>Worship Nations (International) Limited</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>70</td>
+            <td>a歌曲版權屬矽谷生命河靈糧堂、 歌詞版權屬恩福堂所有</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>71</td>
+            <td>以琳之泉使團copyright declaration on their website, all the songs of 伍偉基作品 can be used in Sunday services in churches, with credits to their publisher name on PowerPoint or on projector sheet.</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>72</td>
+            <td>伍偉基</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>73</td>
+            <td>全心製作</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>74</td>
+            <td>全心製作有限公司</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>75</td>
+            <td>北美華人基督徒音樂事工協會</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>76</td>
+            <td>同⼼圓敬拜福⾳音平台</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>77</td>
+            <td>同心圓</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>78</td>
+            <td>同心圓福音平台</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>79</td>
+            <td>周淦棪/周敏曦</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>80</td>
+            <td>基恩敬拜音樂事工</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>81</td>
+            <td>宣道會香港區聯會</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>82</td>
+            <td>救世傳播協會天韻有聲出版社</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>83</td>
+            <td>有情天音樂世界</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>84</td>
+            <td>玻璃海敬拜專輯3</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>85</td>
+            <td>美麗傳奇音樂製作</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>86</td>
+            <td>西區浸信會</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>87</td>
+            <td>陳熹儀</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>88</td>
+            <td>陳秉誠</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>89</td>
+            <td>香港基督徒音樂事工協會 & Bo and Elsa Jarpehag</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        <tr class="publisher-row" onclick="togglePublisherRow(this)">
+            <td>90</td>
+            <td>黃凱詩</td>
+            <td>0</td>
+            <td><span class="expand-icon">▼</span></td>
+        </tr>
+        <tr class="publisher-songs-row" style="display: none;">
+            <td colspan="4">
+                
+        <table class="nested-songs-table">
+            <thead>
+                <tr>
+                    <th>Song</th>
+                    <th>Occurrences</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td colspan="2">No songs</td></tr>
+            </tbody>
+        </table>
+        
+        
+            </td>
+        </tr>
+        
+        </tbody>
+    </table>
+    
+            </div>
+        </div>
+    </section>
+    
     </main>
 
     <footer>
-        <p>Generated on 2026-01-16 13:24:53</p>
-        <p>Data source: Praise History on Google Drive</p>
+        <p>Generated on 2026-01-16 17:31:28</p>
+        <p>Data source: "Praise History" and "Song Index" on Google Drive</p>
         <p>This is an AI agent-coded product</p>
     </footer>
 
@@ -2091,6 +6733,41 @@
         function toggleGlobalSection(header) {
             const section = header.parentElement;
             section.classList.toggle('collapsed');
+        }
+
+        // Toggle publisher row to show/hide songs
+        function togglePublisherRow(row) {
+            const songsRow = row.nextElementSibling;
+            const expandIcon = row.querySelector('.expand-icon');
+
+            // Check if this row is currently expanded
+            const isCurrentlyExpanded = row.classList.contains('expanded');
+
+            if (songsRow && songsRow.classList.contains('publisher-songs-row')) {
+                // If clicking an already expanded row, just collapse it
+                if (isCurrentlyExpanded) {
+                    songsRow.style.display = 'none';
+                    expandIcon.textContent = '▼';
+                    row.classList.remove('expanded');
+                } else {
+                    // Collapse all other publisher rows in all tables
+                    const allPublisherRows = document.querySelectorAll('.publisher-row');
+                    allPublisherRows.forEach(r => {
+                        const sRow = r.nextElementSibling;
+                        const eIcon = r.querySelector('.expand-icon');
+                        if (sRow && sRow.classList.contains('publisher-songs-row')) {
+                            sRow.style.display = 'none';
+                            eIcon.textContent = '▼';
+                            r.classList.remove('expanded');
+                        }
+                    });
+
+                    // Expand the clicked row
+                    songsRow.style.display = 'table-row';
+                    expandIcon.textContent = '▲';
+                    row.classList.add('expanded');
+                }
+            }
         }
 
         // Initialize all leader cards as collapsed by default
