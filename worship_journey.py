@@ -660,6 +660,7 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
         # Calculate publisher statistics for this leader (excluding peace songs)
         publisher_counter = Counter()
         praise_only_counter = Counter()  # Count of praise1 + praise2 songs (excluding peace)
+        unmatched_count = 0  # Track unmatched songs
 
         for svc in leader_svc_list:
             praise_only_counter.update(svc['praise1'] + svc['praise2'])
@@ -669,6 +670,8 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
             copyright_owner = map_song_to_copyright(song, copyright_metadata)
             if copyright_owner is not None:
                 publisher_counter[copyright_owner] += count
+            else:
+                unmatched_count += count
 
         # Calculate total songs (excluding peace)
         total_praise_songs = sum(praise_only_counter.values())
@@ -678,6 +681,11 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
         for publisher, count in publisher_counter.most_common():
             percentage = (count / total_praise_songs * 100) if total_praise_songs > 0 else 0
             publisher_percentages.append((publisher, percentage, count))
+
+        # Add unmatched songs row if there are any
+        if unmatched_count > 0:
+            unmatched_percentage = (unmatched_count / total_praise_songs * 100) if total_praise_songs > 0 else 0
+            publisher_percentages.append(("__UNMATCHED__", unmatched_percentage, unmatched_count))
 
         stats[leader] = {
             'name': leader,
@@ -1568,19 +1576,33 @@ def generate_publisher_percentage_table(publisher_percentages: List[Tuple[str, f
 
     rows = ''
 
+    # Separate unmatched songs from regular publishers
+    unmatched_entry = None
+    regular_publishers = []
+    for entry in publisher_percentages:
+        if entry[0] == "__UNMATCHED__":
+            unmatched_entry = entry
+        else:
+            regular_publishers.append(entry)
+
     # Show top 5 publishers
-    top5 = publisher_percentages[:5]
+    top5 = regular_publishers[:5]
     for publisher, percentage, count in top5:
         # Get display name for publisher
         display_name = get_publisher_display_name(publisher)
         rows += f'<tr><td>{display_name}</td><td>{percentage:.1f}%</td></tr>\n'
 
     # Aggregate remaining publishers if there are more than 5
-    if len(publisher_percentages) > 5:
-        remaining = publisher_percentages[5:]
+    if len(regular_publishers) > 5:
+        remaining = regular_publishers[5:]
         remaining_percentage = sum(p[1] for p in remaining)
         remaining_count = len(remaining)
         rows += f'<tr><td>and other {remaining_count} publishers</td><td>{remaining_percentage:.1f}%</td></tr>\n'
+
+    # Add unmatched songs row at the end if present
+    if unmatched_entry:
+        _, percentage, count = unmatched_entry
+        rows += f'<tr class="unmatched-row"><td>Unmatched songs</td><td>{percentage:.1f}%</td></tr>\n'
 
     return f"""
     <table class="stats-table">
@@ -1932,6 +1954,18 @@ def get_embedded_css() -> str:
 
         .stats-table tbody tr:nth-child(even) {
             background: #fafafa;
+        }
+
+        /* Unmatched row styling */
+        .stats-table .unmatched-row {
+            background: #FFF3CD;
+            font-style: italic;
+            color: #856404;
+            border-top: 2px solid #FFC107;
+        }
+
+        .stats-table .unmatched-row:hover {
+            background: #FFE69C;
         }
 
         .leaders-cell {
