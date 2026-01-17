@@ -148,6 +148,14 @@ PUBLISHER_MAPPINGS = {
     "Public Domain, Son Music Worship Ministry": "Son Music",
 }
 
+# Publisher display name mappings - for changing how publishers are displayed in UI
+# Maps canonical publisher name to preferred display name
+PUBLISHER_DISPLAY_NAMES = {
+    "余子麟": "林四",
+    "Grace Melodia": "頌恩旋律",
+    "麥子霖": "Tsz-Lam Mak",
+}
+
 # ============================================================================
 # STATIC SONG COPYRIGHT MAPPINGS
 # ============================================================================
@@ -308,6 +316,21 @@ def consolidate_publisher_name(publisher: str) -> str:
     """
     if publisher in PUBLISHER_MAPPINGS:
         return PUBLISHER_MAPPINGS[publisher]
+    return publisher
+
+
+def get_publisher_display_name(publisher: str) -> str:
+    """
+    Get the display name for a publisher.
+
+    Args:
+        publisher: Canonical publisher name
+
+    Returns:
+        Display name if mapping exists, otherwise the original name
+    """
+    if publisher in PUBLISHER_DISPLAY_NAMES:
+        return PUBLISHER_DISPLAY_NAMES[publisher]
     return publisher
 
 
@@ -1268,6 +1291,9 @@ def generate_publisher_table(publishers: List[Tuple[str, int, List[Tuple[str, in
 
     rows = ''
     for i, (publisher, total_count, songs) in enumerate(publishers, 1):
+        # Get display name for publisher
+        display_name = get_publisher_display_name(publisher)
+
         # Generate song list for this publisher
         song_rows = ''
         songs_total = 0
@@ -1303,7 +1329,7 @@ def generate_publisher_table(publishers: List[Tuple[str, int, List[Tuple[str, in
         rows += f"""
         <tr class="publisher-row" onclick="togglePublisherRow(this)">
             <td>{i}</td>
-            <td>{publisher}</td>
+            <td>{display_name}</td>
             <td>{total_count}</td>
             <td><span class="expand-icon">▼</span></td>
         </tr>
