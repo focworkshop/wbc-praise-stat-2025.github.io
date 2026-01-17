@@ -137,9 +137,11 @@ PUBLISHER_MAPPINGS = {
     "Worship Nations X 玻璃海樂團": "Worship Nations",
     "Worship Nation": "Worship Nations",
     "© 2019 Worship Nations": "Worship Nations",
+    "玻璃海樂團": "Worship Nations",
 
     # Grace Melodia group
     "頌恩旋律": "Grace Melodia",
+    "Kyrios Culture Association": "Grace Melodia",
 
     # CantonHymn group
     "Cantonhymn": "CantonHymn",
@@ -154,6 +156,7 @@ PUBLISHER_DISPLAY_NAMES = {
     "余子麟": "林四",
     "Grace Melodia": "頌恩旋律",
     "麥子霖": "Tsz-Lam Mak",
+    "Worship Nations": "Worship Nations/玻璃海樂團",
 }
 
 # ============================================================================
@@ -171,6 +174,16 @@ STATIC_SONG_COPYRIGHT_MAPPINGS = {
     "讚頌未停": "頌恩旋律",
     "坐在寶座上聖潔羔羊": "Stream of Praise Music",
     "我屬祢": "鹹蛋音樂事工",
+    # Additional mappings from photo - ONLY those with red text visible
+    "到那日": "Gsus Music Ministry Ltd",
+    "天父...": "Esther Chow",
+    "天父⋯": "Esther Chow",  # Alternative ellipsis character
+    "Great Is Thy Faithfulness 主恩何信實": "香港基督徒音樂事工協會",
+    "遇於祢": "Worship Nations",
+    "連於祢": "Worship Nations",
+    "賜我自由": "Stream of Praise Music",
+    "𧶽我自由": "Stream of Praise Music",  # Character encoding variant
+    "垂絲柳樹下": "Worship Nations",
 }
 
 # Songs that should explicitly have NO publisher (medleys, compilations, etc.)
@@ -574,6 +587,9 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
     # Get all historical services for comparison (2022-2024)
     historical_services = [s for s in services if s['year'] in [2022, 2023, 2024]]
 
+    # Load copyright metadata for publisher calculations
+    copyright_metadata = load_copyright_metadata()
+
     # Group services by leader
     leader_services = defaultdict(list)
     for service in year_services:
@@ -641,6 +657,28 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
         leader_overlap_counts.sort(key=lambda x: x[1], reverse=True)
         top2_leaders_overlap = leader_overlap_counts[:2]
 
+        # Calculate publisher statistics for this leader (excluding peace songs)
+        publisher_counter = Counter()
+        praise_only_counter = Counter()  # Count of praise1 + praise2 songs (excluding peace)
+
+        for svc in leader_svc_list:
+            praise_only_counter.update(svc['praise1'] + svc['praise2'])
+
+        # Map each praise song to its publisher
+        for song, count in praise_only_counter.items():
+            copyright_owner = map_song_to_copyright(song, copyright_metadata)
+            if copyright_owner is not None:
+                publisher_counter[copyright_owner] += count
+
+        # Calculate total songs (excluding peace)
+        total_praise_songs = sum(praise_only_counter.values())
+
+        # Calculate percentages for each publisher
+        publisher_percentages = []
+        for publisher, count in publisher_counter.most_common():
+            percentage = (count / total_praise_songs * 100) if total_praise_songs > 0 else 0
+            publisher_percentages.append((publisher, percentage, count))
+
         stats[leader] = {
             'name': leader,
             'total_services': total_services,
@@ -651,7 +689,8 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
             'combined_top20': combined_top20,
             'new_songs_2025': new_songs_2025,
             'common_songs_count': common_songs_count,
-            'top2_leaders_overlap': top2_leaders_overlap
+            'top2_leaders_overlap': top2_leaders_overlap,
+            'publisher_percentages': publisher_percentages
         }
 
     return stats
@@ -1042,6 +1081,7 @@ def generate_leader_section(stats: Dict) -> str:
     combined_table = generate_top_songs_table(stats['combined_top20'], include_single_occurrence_note=True)
     new_songs_list = generate_song_list(stats['new_songs_2025'])
     overlap_html = generate_overlap_section(stats['top2_leaders_overlap'])
+    publisher_table = generate_publisher_percentage_table(stats['publisher_percentages'])
 
     return f"""
     <article id="leader-{leader_id}" class="leader-card" data-leader-id="{leader_id}">
@@ -1091,6 +1131,12 @@ def generate_leader_section(stats: Dict) -> str:
                 <h4>2025 New Songs (since 2022)</h4>
                 <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
                 {new_songs_list}
+            </div>
+
+            <div class="stat-section">
+                <h4>Song Publisher</h4>
+                <p class="section-note">Percentage of publishers for songs led by this leader (excluding peace songs)</p>
+                {publisher_table}
             </div>
 
             <div class="stat-section">
@@ -1504,6 +1550,51 @@ def generate_overlap_section(overlaps: List[Tuple[str, int]]) -> str:
     ])
 
     return f'<div class="overlap-list">{items}</div>'
+
+
+def generate_publisher_percentage_table(publisher_percentages: List[Tuple[str, float, int]]) -> str:
+    """
+    Generate HTML table for publisher percentages.
+    Shows top 5 publishers, then aggregates the rest into "and other X publishers".
+
+    Args:
+        publisher_percentages: List of (publisher_name, percentage, count) tuples
+
+    Returns:
+        HTML string for the publisher percentage table
+    """
+    if not publisher_percentages:
+        return '<p class="no-data">No publisher data available</p>'
+
+    rows = ''
+
+    # Show top 5 publishers
+    top5 = publisher_percentages[:5]
+    for publisher, percentage, count in top5:
+        # Get display name for publisher
+        display_name = get_publisher_display_name(publisher)
+        rows += f'<tr><td>{display_name}</td><td>{percentage:.1f}%</td></tr>\n'
+
+    # Aggregate remaining publishers if there are more than 5
+    if len(publisher_percentages) > 5:
+        remaining = publisher_percentages[5:]
+        remaining_percentage = sum(p[1] for p in remaining)
+        remaining_count = len(remaining)
+        rows += f'<tr><td>and other {remaining_count} publishers</td><td>{remaining_percentage:.1f}%</td></tr>\n'
+
+    return f"""
+    <table class="stats-table">
+        <thead>
+            <tr>
+                <th>Publisher</th>
+                <th>Percentage</th>
+            </tr>
+        </thead>
+        <tbody>
+            {rows}
+        </tbody>
+    </table>
+    """
 
 
 def get_embedded_css() -> str:
