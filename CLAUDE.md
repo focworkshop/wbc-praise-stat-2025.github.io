@@ -43,3 +43,45 @@ Only read the csv file for the purpose of planning or produce the python scripts
 - "A: Cannis" is "Cannis"
 
 You want 祢, 你, and 袮 to be treated as equivalent characters (so songs with any of these variations are considered the same)
+
+# Song Metadata
+- song metadata contains copyright information of each song
+- source of truth is `songindex*.csv`
+- header at row 4
+- column 0 is Index number, column 1 is song name, column 4 is copyright
+- copyright owner here is aka publisher in the whole context
+
+# static grouping for publisher names
+- 余子麟,Alan Yu,林四
+- Tsz-Lam Mak,麥子霖
+- Stream Of Praise Music,Stream of Praise Music,	Stream of Praise,Steam of Praise,Stream of Praise Musice
+- 香港基督徒音樂事工協會,香港基督徒音樂協會,香港基督徒音事工協會,香港基督徒音樂事工協會(HKACM)
+- 鹹蛋⾳樂事⼯,鹹蛋音樂事工,鹹蛋音樂事
+- Milk & Honey Worship,©️Milk&Honey Worship,Milk&Honey Worship
+- 角聲佈道團,角聲使團
+- One Circle Ltd,One Circle Limited,同心圓敬拜福音平台
+- Flow Church,`Flow Music, Flow Church`,Flow Music
+- Gsus Music Ministry Ltd,Gsus Music Ministry
+- Esther Chow,周敏曦
+- AFC Vancouver,AFC,加拿大基督使者協會
+- 曾路得,Ruth Chen Music,
+- Worship Nations,`Worship Nations / 玻璃海樂團`,`Worship Nations X 玻璃海樂團`,Worship Nation,`© 2019 Worship Nations`
+- Grace Melodia,頌恩旋律
+- CantonHymn,Cantonhymn
+- `Public Domain, Son Music Worship Ministry`,Son Music
+
+songnames grouping:
+- 至愛的回嚮,至愛的迴響
+- 新的異象 新的方向,`新的異象，新的方向`
+- 坐在寶坐上聖潔羔羊,坐在寶座上聖潔羔羊
+- 神真正心意 (The heart of worship),神真正心意 (The Heart of Worship)
+
+# static mapping for song copyright
+- 小小的雙手:玻璃海樂團
+- 是為祢預備:Milk&Honey Worship
+- 仍然敬拜:Flow Music
+- 最美好的仗:香港基督徒音樂事工協會(HKACM)
+- 主超過我在面對的紅海:RedSea Music
+- 讚頌未停:頌恩旋律
+- 坐在寶座上聖潔羔羊:Stream Of Praise Music
+- 我屬祢:鹹蛋⾳樂事⼯
