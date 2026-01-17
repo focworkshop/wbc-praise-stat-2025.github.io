@@ -73,6 +73,12 @@ SONG_NAME_MAPPINGS = {
     "新的異象，新的方向": "新的異象 新的方向",
     "坐在寶坐上聖潔羔羊": "坐在寶座上聖潔羔羊",
     "神真正心意 (The heart of worship)": "神真正心意 (The Heart of Worship)",
+
+    # Day By Day
+    "每一天 (Day By Day)": "每一天",
+
+    # Amazing Grace variations
+    "Amazing Grace (My Chains Are Gone) 奇異恩典": "奇異恩典（除掉困鎖）",
 }
 
 # ============================================================================
@@ -239,6 +245,7 @@ def load_csv_data(filepath: str) -> List[Dict]:
                 'date': date,
                 'year': date.year,
                 'month': date.month,
+                'weekday': date.weekday(),  # 5 = Saturday, 6 = Sunday
                 'praise_leader': praise_leader,
                 'theme': row[2].strip() if len(row) > 2 else '',
                 'praise1': praise1_songs,
@@ -317,6 +324,67 @@ def load_copyright_metadata() -> Dict[str, str]:
     return metadata
 
 
+def normalize_for_comparison(s: str) -> str:
+    """
+    Normalize a song name for comparison purposes.
+    - Case-insensitive
+    - Whitespace removed
+    - Full-width/half-width punctuation normalized
+    - Character variants (你/袮 → 祢) normalized
+
+    Args:
+        s: The song name to normalize
+
+    Returns:
+        Normalized string for comparison
+    """
+    if not s:
+        return ''
+    # Replace character variants with 祢
+    s = s.replace('你', '祢').replace('袮', '祢')
+    # Normalize full-width/half-width punctuation
+    s = s.replace('（', '(').replace('）', ')').replace('，', ',')
+    s = s.replace('。', '.').replace('：', ':').replace('！', '!').replace('？', '?')
+    # Remove whitespace and convert to lowercase for comparison
+    s = ''.join(s.split()).lower()
+    return s
+
+
+def load_historical_songs(csv_path: str = 'uniquesong_until2024.csv') -> Set[str]:
+    """
+    Load the list of songs that existed before 2025 from uniquesong_until2024.csv.
+
+    A "new song" is defined as a song that exists in 2025 but not in this file.
+
+    Args:
+        csv_path: Path to the uniquesong_until2024.csv file
+
+    Returns:
+        Set of normalized song names (for comparison) from before 2025
+    """
+    historical_songs = set()
+    try:
+        with open(csv_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                song = line.strip()
+                if song:
+                    # Split by '+' or '/' if present (e.g., "Song1 + Song2" or "Song1 / Song2")
+                    if '+' in song or '/' in song:
+                        song_parts = [part.strip() for part in re.split(r'\s*[+/]\s*', song)]
+                    else:
+                        song_parts = [song]
+
+                    # Apply comparison normalization for each part
+                    for part in song_parts:
+                        cleaned = clean_song_name(part)
+                        if cleaned:
+                            # Use comparison normalization for set membership
+                            historical_songs.add(normalize_for_comparison(cleaned))
+    except FileNotFoundError:
+        print(f"Warning: {csv_path} not found. New song detection will be unavailable.")
+    return historical_songs
+
+
 def consolidate_publisher_name(publisher: str) -> str:
     """
     Consolidate publisher names according to PUBLISHER_MAPPINGS.
@@ -361,11 +429,8 @@ def map_song_to_copyright(song_name: str, copyright_metadata: Dict[str, str]) ->
     if not copyright_metadata:
         return None
 
-    # Normalize the song name (same normalization as clean_song_name)
-    def normalize(s: str) -> str:
-        # Replace character variants with 祢
-        s = s.replace('你', '祢').replace('袮', '祢')
-        return s.strip()
+    # Use the shared normalize_for_comparison function
+    normalize = normalize_for_comparison
 
     normalized_song = normalize(song_name)
 
@@ -491,6 +556,7 @@ def clean_song_name(song: str) -> str:
     """
     Normalize song names:
     - Normalize character variants (你 → 祢)
+    - Normalize full-width/half-width punctuation
     - Remove suffixes/annotations
     - Apply canonical name mappings
     - Normalize whitespace and punctuation
@@ -503,6 +569,15 @@ def clean_song_name(song: str) -> str:
     # This makes "願祢國度彰顯" = "願你國度彰顯" = "願袮國度彰顯"
     song = song.replace('你', '祢')
     song = song.replace('袮', '祢')
+
+    # Normalize full-width/half-width punctuation (full-width → half-width)
+    song = song.replace('（', '(')
+    song = song.replace('）', ')')
+    song = song.replace('，', ',')
+    song = song.replace('。', '.')
+    song = song.replace('：', ':')
+    song = song.replace('！', '!')
+    song = song.replace('？', '?')
 
     # Remove specific suffixes and annotations (case-insensitive where needed)
     # Remove artist attribution patterns like "by Esther Chow"
@@ -577,15 +652,17 @@ def normalize_leader_name(leader: str) -> str:
 # STATISTICS CALCULATION - SECTION A (PER LEADER)
 # ============================================================================
 
-def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, Dict]:
+def calculate_leader_stats(services: List[Dict], historical_songs_set: Set[str], year: int = 2025) -> Dict[str, Dict]:
     """
     Calculate statistics for each praise leader in the specified year.
+
+    Args:
+        services: List of service records
+        historical_songs_set: Set of songs from uniquesong_until2024.csv for new song detection
+        year: The year to calculate statistics for
     """
     # Filter services by year
     year_services = [s for s in services if s['year'] == year]
-
-    # Get all historical services for comparison (2022-2024)
-    historical_services = [s for s in services if s['year'] in [2022, 2023, 2024]]
 
     # Load copyright metadata for publisher calculations
     copyright_metadata = load_copyright_metadata()
@@ -594,12 +671,6 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
     leader_services = defaultdict(list)
     for service in year_services:
         leader_services[service['praise_leader']].append(service)
-
-    # Build historical song sets for each leader
-    leader_historical_songs = defaultdict(set)
-    for service in historical_services:
-        leader = service['praise_leader']
-        leader_historical_songs[leader].update(service['all_songs'])
 
     # Calculate stats for each leader
     stats = {}
@@ -631,8 +702,12 @@ def calculate_leader_stats(services: List[Dict], year: int = 2025) -> Dict[str, 
         peace_top20 = [(song, count) for song, count in peace_counter.most_common(20) if count > 1]
         combined_top20 = [(song, count) for song, count in all_songs_counter.most_common(20) if count > 1]
 
-        # New songs in 2025 (not in this leader's 2022-2024 history)
-        new_songs_2025 = sorted(all_songs_set - leader_historical_songs.get(leader, set()))
+        # New songs in 2025 (not in uniquesong_until2024.csv)
+        # Compare using normalized form (case-insensitive, whitespace removed)
+        new_songs_2025 = sorted([
+            song for song in all_songs_set
+            if normalize_for_comparison(song) not in historical_songs_set
+        ])
 
         # Calculate overlap with other leaders
         other_leaders_songs = set()
@@ -860,14 +935,18 @@ def calculate_publisher_stats(services: List[Dict], year: int = 2025) -> Dict:
 # STATISTICS CALCULATION - SECTION B (GLOBAL)
 # ============================================================================
 
-def calculate_global_stats(services: List[Dict], year: int = 2025) -> Dict:
+def calculate_global_stats(services: List[Dict], historical_songs_set: Set[str], year: int = 2025) -> Dict:
     """
     Calculate global statistics for all services in the specified year.
+
+    Args:
+        services: List of service records
+        historical_songs_set: Set of songs from uniquesong_until2024.csv for new song detection
+        year: The year to calculate statistics for
     """
     # Filter services by year
     year_services = [s for s in services if s['year'] == year]
     previous_year_services = [s for s in services if s['year'] == year - 1]
-    historical_services = [s for s in services if s['year'] in [2022, 2023, 2024]]
 
     # Count songs by category
     praise1_counter = Counter()
@@ -914,17 +993,12 @@ def calculate_global_stats(services: List[Dict], year: int = 2025) -> Dict:
     # Top 3 peace songs
     peace_top3 = peace_counter.most_common(3)
 
-    # New songs in 2025 (not in 2022-2024)
-    historical_songs = set()
-    for svc in historical_services:
-        historical_songs.update(svc['all_songs'])
-    new_songs_2025 = sorted(all_songs_set - historical_songs)
-
-    # Songs in 2024 but not in 2025
-    songs_2024 = set()
-    for svc in previous_year_services:
-        songs_2024.update(svc['all_songs'])
-    songs_2024_not_2025 = sorted(songs_2024 - all_songs_set)
+    # New songs in 2025 (not in uniquesong_until2024.csv)
+    # Compare using normalized form (case-insensitive, whitespace removed)
+    new_songs_2025 = sorted([
+        song for song in all_songs_set
+        if normalize_for_comparison(song) not in historical_songs_set
+    ])
 
     # All unique songs in 2025 (alphabetically sorted)
     unique_songs_2025 = sorted(all_songs_set)
@@ -937,8 +1011,101 @@ def calculate_global_stats(services: List[Dict], year: int = 2025) -> Dict:
         'top10_multi_leader': top10_multi_leader,
         'peace_top3': peace_top3,
         'new_songs_2025': new_songs_2025,
-        'songs_2024_not_2025': songs_2024_not_2025,
         'unique_songs_2025': unique_songs_2025
+    }
+
+
+def calculate_new_song_usage_stats(services: List[Dict], historical_songs_set: Set[str], year: int = 2025) -> Dict:
+    """
+    Calculate new song usage statistics for worship services.
+
+    For each category (combined, saturday, sunday), counts:
+    - Total number of worship services
+    - Number of services where a new song appeared for the first time (in that category)
+    - Percentage of services with new song introductions
+
+    The "first occurrence" rule means if a new song appears multiple times,
+    only the first service in that category counts.
+
+    Args:
+        services: List of service records
+        historical_songs_set: Set of normalized song names from before 2025
+        year: The year to calculate statistics for
+
+    Returns:
+        Dictionary with stats for 'combined', 'saturday', and 'sunday'
+    """
+    # Filter services by year and sort by date
+    year_services = sorted(
+        [s for s in services if s['year'] == year],
+        key=lambda x: x['date']
+    )
+
+    # Separate by day of week
+    saturday_services = [s for s in year_services if s['weekday'] == 5]
+    sunday_services = [s for s in year_services if s['weekday'] == 6]
+
+    def count_worships_with_new_songs(service_list: List[Dict]) -> Tuple[int, List[str]]:
+        """Count worships that introduce a new song (first occurrence only).
+
+        Returns:
+            Tuple of (count, list of date strings with song names e.g. "2025-1-18(song1,song2)")
+        """
+        seen_new_songs = set()
+        worships_with_new = 0
+        dates_with_new = []
+
+        for svc in service_list:
+            new_songs_in_service = []
+            for song in svc['all_songs']:
+                normalized = normalize_for_comparison(song)
+                # Check if this is a new song (not in historical set)
+                if normalized not in historical_songs_set:
+                    # Check if this is the first time we see it in this category
+                    if normalized not in seen_new_songs:
+                        new_songs_in_service.append(song)
+                        seen_new_songs.add(normalized)
+
+            if new_songs_in_service:
+                worships_with_new += 1
+                # Format date without leading zeros (Windows compatible)
+                date_str = f"{svc['date'].year}-{svc['date'].month}-{svc['date'].day}"
+                songs_str = ','.join(new_songs_in_service)
+                dates_with_new.append(f"{date_str}({songs_str})")
+
+        return worships_with_new, dates_with_new
+
+    # Calculate for each category
+    combined_total = len(year_services)
+    combined_with_new, combined_dates = count_worships_with_new_songs(year_services)
+    combined_pct = (combined_with_new / combined_total * 100) if combined_total > 0 else 0
+
+    saturday_total = len(saturday_services)
+    saturday_with_new, saturday_dates = count_worships_with_new_songs(saturday_services)
+    saturday_pct = (saturday_with_new / saturday_total * 100) if saturday_total > 0 else 0
+
+    sunday_total = len(sunday_services)
+    sunday_with_new, sunday_dates = count_worships_with_new_songs(sunday_services)
+    sunday_pct = (sunday_with_new / sunday_total * 100) if sunday_total > 0 else 0
+
+    return {
+        'combined': {
+            'total_worships': combined_total,
+            'worships_with_new_songs': combined_with_new,
+            'percentage': combined_pct
+        },
+        'saturday': {
+            'total_worships': saturday_total,
+            'worships_with_new_songs': saturday_with_new,
+            'percentage': saturday_pct,
+            'dates': saturday_dates
+        },
+        'sunday': {
+            'total_worships': sunday_total,
+            'worships_with_new_songs': sunday_with_new,
+            'percentage': sunday_pct,
+            'dates': sunday_dates
+        }
     }
 
 
@@ -960,7 +1127,7 @@ def format_song_name(song: str) -> str:
         Formatted song name with dot indicator if new
     """
     if song in NEW_SONGS_2025:
-        return f'<span class="new-song-indicator" title="This is a new song that appeared in 2025 but was not used in 2022-2024">●</span> {song}'
+        return f'<span class="new-song-indicator" title="New Song: 2025 was the first time this song appeared">●</span> {song}'
     return song
 
 def generate_html(leader_stats: Dict, global_stats: Dict, publisher_stats: Dict, output_path: str):
@@ -1108,6 +1275,11 @@ def generate_leader_section(stats: Dict) -> str:
                     <span class="stat-label">Songs</span>
                 </div>
                 <div class="stat-item">
+                    <span class="stat-value">{len(stats['new_songs_2025'])}</span>
+                    <span class="stat-label">New Songs</span>
+                    <span class="stat-percentage" style="display: none;">({len(stats['new_songs_2025']) / stats['total_songs'] * 100 if stats['total_songs'] > 0 else 0:.1f}%)</span>
+                </div>
+                <div class="stat-item">
                     <span class="stat-value">{stats['common_songs_count']}</span>
                     <span class="stat-label">Songs in common with others</span>
                 </div>
@@ -1136,8 +1308,8 @@ def generate_leader_section(stats: Dict) -> str:
             </div>
 
             <div class="stat-section">
-                <h4>2025 New Songs (since 2022)</h4>
-                <p class="section-note">Songs led in 2025 that were not led by this leader in 2022-2024</p>
+                <h4>New Songs in 2025</h4>
+                <p class="section-note">Songs that appeared in 2025 for the first time (not previously in our song library)</p>
                 {new_songs_list}
             </div>
 
@@ -1157,6 +1329,73 @@ def generate_leader_section(stats: Dict) -> str:
     """
 
 
+def generate_new_song_usage_section(new_song_usage: Dict) -> str:
+    """
+    Generate HTML for new song usage statistics section.
+
+    Args:
+        new_song_usage: Dict with 'combined', 'saturday', 'sunday' stats
+
+    Returns:
+        HTML string for the new song usage section
+    """
+    combined = new_song_usage['combined']
+    saturday = new_song_usage['saturday']
+    sunday = new_song_usage['sunday']
+
+    # Format dates as comma-separated for compact display
+    saturday_dates_str = ', '.join(saturday.get('dates', []))
+    sunday_dates_str = ', '.join(sunday.get('dates', []))
+
+    return f"""
+    <div class="stat-section collapsible">
+        <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
+            <span>New Songs Usage</span>
+            <span class="expand-icon">▼</span>
+        </h4>
+        <div class="collapsible-content">
+            <p class="section-note">Statistics about introduction of new songs in worship services. A worship is counted if it introduces at least one new song for the first time (in that category).</p>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Total Worships</th>
+                        <th>Worships with New Songs</th>
+                        <th>Percentage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Combined</td>
+                        <td>{combined['total_worships']}</td>
+                        <td>{combined['worships_with_new_songs']}</td>
+                        <td>{combined['percentage']:.1f}%</td>
+                    </tr>
+                    <tr>
+                        <td>Saturday Worship</td>
+                        <td>{saturday['total_worships']}</td>
+                        <td>{saturday['worships_with_new_songs']}</td>
+                        <td>{saturday['percentage']:.1f}%</td>
+                    </tr>
+                    <tr>
+                        <td>Sunday Worship</td>
+                        <td>{sunday['total_worships']}</td>
+                        <td>{sunday['worships_with_new_songs']}</td>
+                        <td>{sunday['percentage']:.1f}%</td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="margin-top: 10px; font-size: 0.75em; line-height: 1.4; color: #555;">
+                <b>Sat:</b> {saturday_dates_str}
+            </div>
+            <div style="margin-top: 6px; font-size: 0.75em; line-height: 1.4; color: #555;">
+                <b>Sun:</b> {sunday_dates_str}
+            </div>
+        </div>
+    </div>
+    """
+
+
 def generate_global_section(stats: Dict) -> str:
     """Generate HTML for global statistics."""
     praise1_table = generate_top_songs_table(stats['praise1_top20'])
@@ -1165,8 +1404,12 @@ def generate_global_section(stats: Dict) -> str:
     multi_leader_table = generate_multi_leader_table(stats['top10_multi_leader'])
     peace_table = generate_top_songs_table(stats['peace_top3'])
     new_songs_list = generate_song_list(stats['new_songs_2025'])
-    deprecated_songs_list = generate_song_list(stats['songs_2024_not_2025'])
     unique_songs_list = generate_song_list(stats['unique_songs_2025'])
+
+    # Generate new song usage section if data is available
+    new_song_usage_html = ''
+    if 'new_song_usage' in stats:
+        new_song_usage_html = generate_new_song_usage_section(stats['new_song_usage'])
 
     return f"""
     <div class="global-stats">
@@ -1176,8 +1419,10 @@ def generate_global_section(stats: Dict) -> str:
         </div>
 
         <div class="info-box">
-            <p><span class="new-song-indicator">●</span> Indicates a new song in 2025 (not used in 2022-2024)</p>
+            <p><span class="new-song-indicator">●</span> New Song: 2025 was the first time this song appeared</p>
         </div>
+
+        {new_song_usage_html}
 
         <div class="stat-section collapsible">
             <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
@@ -1236,19 +1481,8 @@ def generate_global_section(stats: Dict) -> str:
                 <span class="expand-icon">▼</span>
             </h4>
             <div class="collapsible-content">
-                <p class="section-note">Songs that appeared in 2025 but not in 2022-2024</p>
+                <p class="section-note">Songs that appeared in 2025 for the first time (not previously in our song library)</p>
                 {new_songs_list}
-            </div>
-        </div>
-
-        <div class="stat-section collapsible">
-            <h4 class="collapsible-header" onclick="toggleGlobalSection(this)">
-                <span>Songs from 2024 Not in 2025</span>
-                <span class="expand-icon">▼</span>
-            </h4>
-            <div class="collapsible-content">
-                <p class="section-note">Songs that were used in 2024 but not continued in 2025</p>
-                {deprecated_songs_list}
             </div>
         </div>
 
@@ -2408,15 +2642,24 @@ def main():
     services_2025 = [s for s in services if s['year'] == 2025]
     print(f"   Found {len(services_2025)} services in 2025")
 
+    # Load historical songs for new song detection
+    historical_songs_set = load_historical_songs()
+    print(f"   Loaded {len(historical_songs_set)} historical songs from uniquesong_until2024.csv")
+
     # Calculate leader statistics
     print("\n2. Calculating Section A - Praise Leader Statistics...")
-    leader_stats = calculate_leader_stats(services, year=2025)
+    leader_stats = calculate_leader_stats(services, historical_songs_set, year=2025)
     print(f"   Analyzed {len(leader_stats)} praise leaders")
 
     # Calculate global statistics
     print("\n3. Calculating Section B - Global Statistics...")
-    global_stats = calculate_global_stats(services, year=2025)
+    global_stats = calculate_global_stats(services, historical_songs_set, year=2025)
     print(f"   Found {global_stats['total_unique_songs']} unique songs")
+
+    # Calculate new song usage statistics and add to global_stats
+    new_song_usage_stats = calculate_new_song_usage_stats(services, historical_songs_set, year=2025)
+    global_stats['new_song_usage'] = new_song_usage_stats
+    print(f"   New song usage: {new_song_usage_stats['combined']['worships_with_new_songs']}/{new_song_usage_stats['combined']['total_worships']} worships introduced new songs")
 
     # Calculate publisher statistics
     print("\n4. Calculating Section C - Publisher Statistics...")

@@ -27,16 +27,27 @@
 
 Only read the csv file for the purpose of planning or produce the python scripts. Do not use agent model to repeatedly produce statistics.
 
+# "Sunday Worship" and "Saturday Worship" definition
+in `praisehistory.csv`, identify rows with sequencial date.
+for example : 
+- 2025-05-31, 2025-06-01, 
+- 2025-06-07, 2025-06-08
+The first row is "Saturday Worship", the second row is "Sunday Worship"
+
+
 # Song name parsing
 - the word "祢" is considered the same as "你"
 - in song names processing, Disregard appending strings like "Medly", "Chorus Only", ," (Canto)"," (skip verse)"," by Esther Chow"," C1 C2","(Mando)","Communion","Holy Communion","Baptism"
 - "Communion","Holy Communion","Baptism" are not a song, consider that empty, skip those.
-- some very specific cases I want you to maintain a static mapping:
--- these are the same: "房角石頭（Cornerstone）","Cornerstone", "房角基石","Cornerstone 房角基石"
--- same: "唯獨在基督裡 (In Christ Alone)","唯獨在基督裡"
--- same: "奇異恩典 Amazing Grace (My Chains are Gone)","奇異恩典（除掉困鎖）","奇異恩典(除掉困鎖)",
--- same: 獻上頌讚,獻上頌讚 (Shout To The Lord),獻上頌讚 Shout to The Lord
--- same: King of Kings 萬代君主,萬代君主
+- consider `(` = `（`
+- consider `)` = `）`
+- consider `,` = `，`
+- consider `.` = `。`
+- consider ` ` = ` ` (space)
+- consider `:` = `：`
+- consider `!` = `！`
+- consider `?` = `？`
+- during any song name comparison, remove whitespace betweend charaters within the songname string. consider it case-insensitive
 
 #Praise leader name parsing
 - "P1: Phoebe" is considered as "Phoebe"
@@ -75,6 +86,8 @@ songnames grouping:
 - 新的異象 新的方向,`新的異象，新的方向`
 - 坐在寶坐上聖潔羔羊,坐在寶座上聖潔羔羊
 - 神真正心意 (The heart of worship),神真正心意 (The Heart of Worship)
+- `每一天 (Day By Day)`,每一天
+- `Amazing Grace (My Chains Are Gone) 奇異恩典`,`奇異恩典（除掉困鎖）`
 
 # static mapping for song copyright
 - 小小的雙手:玻璃海樂團
@@ -85,3 +98,13 @@ songnames grouping:
 - 讚頌未停:頌恩旋律
 - 坐在寶座上聖潔羔羊:Stream Of Praise Music
 - 我屬祢:鹹蛋⾳樂事⼯
+
+# "New Song" Definition
+- A "new song" is the song that exists in 2025 but not inside `uniquesong_until2024.csv`
+- during comparing this new song excel, if the row has `+` or `/` , split the string in to separate song names
+
+# "New Songs Usage"
+- Number of worship that used a new song
+- If a worship used 3 new songs, count 3, but respect the next rule:
+- if a new songs appeared multiple times, only count the first occurence.for example:week1, week5 has newsongA, that new songA only count once.
+
